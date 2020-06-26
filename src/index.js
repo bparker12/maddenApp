@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom"
-import './index.css';
-import maddenApp from './maddenApp';
 import 'semantic-ui-css/semantic.min.css'
+import './index.css';
+import MaddenApp from './maddenApp';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <Router>
-    <maddenApp />
+    <MaddenApp />
   </Router>,
   document.getElementById('root')
 );
