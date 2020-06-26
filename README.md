@@ -1,3 +1,7 @@
+#MaddenApp
+This app is intended to track the recruitment stories in Madden Franchise. This will allow a user to track them and then use that data to project when players will have dev traits based on previous data.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
