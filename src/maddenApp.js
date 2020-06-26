@@ -1,25 +1,18 @@
-import React from 'react';
-import './maddenApp.css';
+import React from 'react'
+import { Route } from 'react-router-dom'
+import ApplicationViews from './applicationViews'
+import './maddenApp.css'
 
-function maddenApp() {
+const MaddenApp = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+      <Route render={props => (
+        <ApplicationViews {...props} />
+      )}
+      />
+    </React.Fragment>
+  )
 }
 
-export default maddenApp;
+export default MaddenApp
