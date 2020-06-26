@@ -1,4 +1,4 @@
-#MaddenApp
+# MaddenApp
 This app is intended to track the recruitment stories in Madden Franchise. This will allow a user to track them and then use that data to project when players will have dev traits based on previous data.
 
 
