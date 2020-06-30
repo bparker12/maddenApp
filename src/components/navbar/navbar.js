@@ -1,15 +1,22 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { Menu, Dropdown } from 'semantic-ui-react'
+import Madden_Tracker_Logo from './Madden_Tracker_Logo.png'
+import './navbar.css'
+
 
 const NavBar = props => {
 
     return (
         <nav>
             <Menu>
-                <Menu.Item header>MaddenApp</Menu.Item>
+                <img src={Madden_Tracker_Logo} alt='logo' className='logo'/>
+                <Menu.Item header >MaddenApp</Menu.Item>
                 <Menu.Item 
                     name='Profile'
+                />
+                <Menu.Item
+                    name='Add New Franchise'
                 />
                 <Dropdown item text='Franchise Select'>
                     <Dropdown.Menu>
