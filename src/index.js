@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from "react-router-dom"
 import 'semantic-ui-css/semantic.min.css'
-import './index.css';
-import MaddenApp from './maddenApp';
-import * as serviceWorker from './serviceWorker';
+import './index.css'
+import MaddenApp from './maddenApp'
+import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <Router>
