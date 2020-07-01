@@ -15,9 +15,9 @@ const NavBar = props => {
                 <Menu.Item 
                     name='Profile'
                 />
-                <Menu.Item
-                    name='Add New Franchise'
-                />
+                <Menu.Item>
+                    <Link to='/newfranchise'> Add New Franchise </Link>
+                </Menu.Item>
                 <Dropdown item text='Franchise Select'>
                     <Dropdown.Menu>
                         <Dropdown.Item>Insert Franchises here</Dropdown.Item>
