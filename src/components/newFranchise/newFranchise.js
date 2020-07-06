@@ -5,16 +5,25 @@ import { Form, Dropdown, Grid, Button, Label, Item } from "semantic-ui-react";
 const NewFranchise = props => {
 
     const [onlineLeague, setOnlineLeague] = useState(true)
+    const [maddenYear, setMaddenYear] = useState()
     // const [privateLeague, setPrivateLeague] = useState(true)
 
     const [onlineOptions] = React.useState([
         {label: 'True', value: true},
         {label: 'False', value: false}
     ])
+    const [maddenYearOption] = React.useState([
+        {label: '20', value: 20},
+        {label: '21', value: 21}
+    ])
     
     const changeValue = (e) => {
-        setOnlineLeague(e.target.value)
-        console.log(onlineLeague)
+        if(document.getElementById('online')){
+            setOnlineLeague(e.target.value)
+        } else if(document.getElementById('year')){
+            setMaddenYear(e.target.value)
+        }
+        console.log(onlineLeague, maddenYear)
     }
     
     return (
@@ -24,11 +33,20 @@ const NewFranchise = props => {
                 <Form size='large'>
                     <Form.Field>
                         <Label size='big'>Madden #</Label>
-                        <Dropdown>
-                            <Dropdown.Menu>
-                                <input placeholder='20'/>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                        <select
+                            onChange={changeValue}
+                            value={maddenYear}
+                            id="year"
+                            >
+                            {maddenYearOption.map(yearOpt => (
+                                <option
+                                    key={yearOpt.value}
+                                    value={yearOpt.value}
+                                    >
+                                    {yearOpt.label}
+                                    </option>
+                            ))}
+                        </select>
                     </Form.Field>
                     <Label size ='big' prompt basic>Franchise Name</Label>
                     <input required defaultValue="" placeholder='BensStrikeAgain' type='string'
@@ -39,7 +57,7 @@ const NewFranchise = props => {
                         <select
                            onChange={changeValue}
                            value={onlineLeague}
-                           defaultValue={onlineLeague}
+                           id="online"
                            > 
                            {onlineOptions.map(opt => (
                                <option
