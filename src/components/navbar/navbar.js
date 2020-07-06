@@ -11,7 +11,9 @@ const NavBar = props => {
         <nav>
             <Menu>
                 <img src={Madden_Tracker_Logo} alt='logo' className='logo'/>
-                <Menu.Item header >MaddenApp</Menu.Item>
+                <Menu.Item header >
+                    <Link to='/'> MaddenApp </Link>
+                </Menu.Item>
                 <Menu.Item 
                     name='Profile'
                 />
