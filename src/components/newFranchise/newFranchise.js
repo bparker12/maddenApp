@@ -5,8 +5,8 @@ import { Form, Dropdown, Grid, Button, Label, Item } from "semantic-ui-react";
 const NewFranchise = props => {
 
     const [onlineLeague, setOnlineLeague] = useState(true)
-    const [maddenYear, setMaddenYear] = useState()
-    // const [privateLeague, setPrivateLeague] = useState(true)
+    const [maddenYear, setMaddenYear] = useState(20)
+    const [privateLeague, setPrivateLeague] = useState(true)
 
     const [onlineOptions] = React.useState([
         {label: 'True', value: true},
@@ -18,14 +18,19 @@ const NewFranchise = props => {
     ])
     
     const changeValue = (e) => {
-        if(document.getElementById('online')){
+        if(e.target.id === 'online'){
             setOnlineLeague(e.target.value)
-        } else if(document.getElementById('year')){
+        } else if(e.target.id ==='year'){
             setMaddenYear(e.target.value)
         }
         console.log(onlineLeague, maddenYear)
     }
     
+    const toggleChecked = () => {
+        setPrivateLeague(!privateLeague)
+        console.log(privateLeague)
+    }
+
     return (
         <>
         <Grid container centered columns={1}>
@@ -48,7 +53,7 @@ const NewFranchise = props => {
                             ))}
                         </select>
                     </Form.Field>
-                    <Label size ='big' prompt basic>Franchise Name</Label>
+                    <Label size ='large' prompt basic>Franchise Name</Label>
                     <input required defaultValue="" placeholder='BensStrikeAgain' type='string'
 
                     />
@@ -70,7 +75,8 @@ const NewFranchise = props => {
                         </select>
                     </Form.Field>
                     <Form.Field>
-                        <Form.Checkbox defaultChecked={true} label='Private League' name='True' slider />
+                        <Label size='big'>Private League</Label>
+                        <Form.Checkbox defaultChecked defaultValue={privateLeague} slider onChange={toggleChecked} />
                     </Form.Field>
                     <Button>Submit</Button>
                 </Form>
