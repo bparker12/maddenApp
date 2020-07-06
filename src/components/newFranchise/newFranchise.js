@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import post from '../../modules/apiManager'
-import { Form, Dropdown, Grid, Button, Label, Item } from "semantic-ui-react";
+import { Form, Grid, Button, Label } from "semantic-ui-react";
 
 const NewFranchise = props => {
+
+    const name = useRef()
 
     const [onlineLeague, setOnlineLeague] = useState(true)
     const [maddenYear, setMaddenYear] = useState(20)
@@ -54,7 +56,7 @@ const NewFranchise = props => {
                         </select>
                     </Form.Field>
                     <Label size ='large' prompt basic>Franchise Name</Label>
-                    <input required defaultValue="" placeholder='BensStrikeAgain' type='string'
+                    <input required defaultValue="" placeholder='BensStrikeAgain' type='string' ref={name }
 
                     />
                     <Form.Field>
