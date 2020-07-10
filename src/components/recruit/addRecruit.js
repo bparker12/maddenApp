@@ -9,16 +9,25 @@ const AddRecruit = props => {
     const position = useRef('')
     const positionType = useRef('')
     const school = useRef('')
-    const headline = useRef()
-    const news = useRef()
+    const headline = useRef('')
+    const news = useRef('')
 
 
-
+    const [weekNum, setWeekNum] = useState(1)
     const [newsThisWeek, setNewsThisWeek] = useState(false)
+    const [projDraftRound, setProjDraftRound] = useState(1)
+    const [projDraftnum, setProjDraftNum] = useState(1)
+    const [trueDraftRound, setTrueDraftRound] = useState(1)
+    const [trueDraftpos, setTrueDraftPos] = useState('Early')
 
     const week = range(1,17).concat(['Superbowl', 'Offseason Stage 1', 'Offseason Stage 2', 'Offseason Stage 3'])
     const roundNum = range(1, 7)
     const pickNum = range(1, 32)
+    const [pickPos] = React.useState([
+        {label: 'Early', value: 1},
+        {label: 'Mid', value: 2},
+        {label: 'Late', value: 3}
+    ])
 
     function range(start, end) {
         return Array(end - start + 1).fill().map((_, idx) => start + idx)
@@ -30,9 +39,21 @@ const AddRecruit = props => {
     ])
 
     const changeValue = (e) => {
-        if(e.target.value === 'true'){
-        setNewsThisWeek(true)
-        } else {setNewsThisWeek(false)}
+        if(e.target.id === 'newsThisWeek'){
+            if(e.target.value === 'true'){
+                setNewsThisWeek(true)
+            } else {setNewsThisWeek(false)}
+        } else if(e.target.id === 'weekNum'){
+            setWeekNum(parseInt(e.target.value))
+        } else if(e.target.id === 'projectedRoundNum'){
+            setProjDraftRound(parseInt(e.target.value))
+        } else if(e.target.id === 'projectedDraftNum'){
+            setProjDraftNum(parseInt(e.target.value))
+        } else if(e.target.id === 'trueRoundNumber'){
+            setTrueDraftRound(parseInt(e.target.value))
+        } else if(e.target.id === 'trueDraftPosition'){
+            setTrueDraftPos(e.target.value)
+        }
     }
 
     return (
@@ -44,6 +65,7 @@ const AddRecruit = props => {
                 <Label size='big'>Week Number</Label>
                 <Form.Field>
                     <select
+                    onChange={changeValue}
                     id='weekNum'
                     >
                         {week.map(weekNum => (
@@ -86,7 +108,7 @@ const AddRecruit = props => {
                 </Form.Field>
                     <Label size='big'>Age</Label>
                 <Form.Field>
-                    <input type='integer' id='age' ref = {age}/>
+                    <input type='number' min="20" max='24' id='age' ref = {age}/>
                 </Form.Field>
                     <Label size='big'>Position</Label>
                 <Form.Field>
@@ -102,7 +124,7 @@ const AddRecruit = props => {
                 </Form.Field>
                     <Label size='big'>Project Draft Round</Label>
                 <Form.Field>
-                    <input  autoComplete="on" list="projRoundNum" placeholder='Round Number'/>
+                    <input id='projectedRoundNum' autoComplete="on" list="projRoundNum" placeholder='Round Number' onChange={changeValue}/>
                     <datalist
                     id='projRoundNum'
                     >
@@ -117,7 +139,7 @@ const AddRecruit = props => {
                 </Form.Field>
                     <Label size='big'>Project Draft Number</Label>
                 <Form.Field>
-                    <input  autoComplete="on" list="projDraftNum" placeholder='Pick Numer'/>
+                    <input id='projectedDraftNum' autoComplete="on" list="projDraftNum" placeholder='Pick Numer' onChange={changeValue}/>
                 <datalist
                     id='projDraftNum'
                     >
@@ -132,7 +154,7 @@ const AddRecruit = props => {
                 </Form.Field>
                     <Label size='big'>Scouted Draft Round</Label>
                 <Form.Field>
-                    <input  autoComplete="on" list="trueRoundNum" placeholder='Round Number'/>
+                    <input id='trueRoundNumber' autoComplete="on" list="trueRoundNum" placeholder='Round Number' onChange={changeValue}/>
                     <datalist
                     id='trueRoundNum'
                     >
@@ -145,16 +167,16 @@ const AddRecruit = props => {
                         ))}
                     </datalist>
                 </Form.Field>
-                    <Label size='big'>Scouted Draft Number</Label>
+                    <Label size='big'>Scouted Draft Position</Label>
                 <Form.Field>
-                    <input  autoComplete="on" list="trueDraftNum" placeholder='Pick Numer'/>
+                    <input id='trueDraftPosition' autoComplete="on" list="TrueDraftPos" placeholder={trueDraftpos} onChange={changeValue}/>
                 <datalist
-                    id='TrueDraftNum'
+                    id='TrueDraftPos'
                     >
-                        {pickNum.map(num => (
+                        {pickPos.map(pos => (
                             <option
-                            key={num}
-                            value={num}
+                            key={pos.value}
+                            value={pos.label}
                             >
                             </option>
                         ))}
@@ -176,6 +198,7 @@ const AddRecruit = props => {
             <Label size='big'>Week Number</Label>
                 <Form.Field>
                     <select
+                    onChange={changeValue}
                     id='weekNum'
                     >
                         {week.map(weekNum => (
