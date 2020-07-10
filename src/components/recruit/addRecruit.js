@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import post from '../../modules/apiManager'
+import React, { /*useEffect*/useState, useRef } from "react";
+// import post from '../../modules/apiManager'
 import { Form, Label, Grid, Button } from "semantic-ui-react";
 
 const AddRecruit = props => {
@@ -14,7 +14,7 @@ const AddRecruit = props => {
 
 
 
-    const [newsThisWeek, setNewsThisWeek] = useState(true)
+    const [newsThisWeek, setNewsThisWeek] = useState(false)
 
     const week = range(1,17).concat(['Superbowl', 'Offseason Stage 1', 'Offseason Stage 2', 'Offseason Stage 3'])
     const roundNum = range(1, 7)
@@ -36,8 +36,11 @@ const AddRecruit = props => {
     }
 
     return (
+        
         <Grid style={{ padding: '30px'}} >
             <Form>
+            {newsThisWeek?
+            <React.Fragment>
                 <Label size='big'>Week Number</Label>
                 <Form.Field>
                     <select
@@ -166,6 +169,51 @@ const AddRecruit = props => {
                     <input required type='string' id='news' ref = {news}/>
                 </Form.Field>
             <Button type='submit'> Submit </Button>
+            </React.Fragment>
+            :
+            <React.Fragment>
+
+            <Label size='big'>Week Number</Label>
+                <Form.Field>
+                    <select
+                    id='weekNum'
+                    >
+                        {week.map(weekNum => (
+                            Number.isInteger(weekNum)?
+                            <option
+                            key={weekNum}
+                            value={weekNum}
+                            >
+                                week {weekNum}
+                            </option>:
+                            <option
+                            key={weekNum}
+                            value={weekNum}
+                            >
+                                {weekNum}
+                            </option>
+                        ))}
+                    </select>
+                </Form.Field>
+                <Form.Field>
+                    <Label size='big'>News This Week</Label>
+                    <select
+                    onChange={changeValue}
+                    value={newsThisWeek}
+                    id="newsThisWeek"
+                    >
+                    {draftNewsWeek.map(opt => (
+                        <option
+                        key={opt.value}
+                        value={opt.value}
+                        >
+                        {opt.label}
+                        </option>
+                    ))}
+                    </select>
+                </Form.Field>
+            </React.Fragment>
+            }
             </Form>
         </Grid>
     )
