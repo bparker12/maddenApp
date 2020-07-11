@@ -1,0 +1,28 @@
+{
+    "franchise": [
+        {
+            "id": 1,
+            "userId": 1,
+            "name": "traesXbens",
+            "maddenNum": 20,
+            "year": 20,
+            "private": true,
+            "online": true
+        }
+    ],
+    "recruit": [
+        {
+            
+        }
+    ],
+    "draft":[
+        {
+
+        }
+    ],
+    "projected":[
+        {
+            
+        }
+    ]
+}
