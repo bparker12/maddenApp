@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import post from '../../modules/apiManager'
 import { Form, Grid, Button, Label, Modal } from "semantic-ui-react";
+import apiManager from "../../modules/apiManager";
 
 const NewFranchise = props => {
 
@@ -43,6 +44,24 @@ const NewFranchise = props => {
             }
         }
         console.log(privateLeague)
+    }
+
+    const newFranchise = {
+        userId: 1,
+        name: name.current.value,
+        year: maddenYear,
+        online: onlineLeague,
+        private: privateLeague 
+    }
+
+    const postFranchise = (e) => {
+        e.preventDefault();
+        apiManager.post("franchise", newFranchise)
+        .then(() => {
+            setModal(!openModal)
+            props.history.push("/")
+        })
+        console.log('you clicked me', newFranchise)
     }
 
     return (
@@ -112,7 +131,8 @@ const NewFranchise = props => {
                                     <h3> Private: {privateLeague?'Yes':'No'}</h3>
                                 </Modal.Description>
                                     <Button
-
+                                    type='submit'
+                                    onClick={postFranchise}
                                     >
                                         Submit
                                     </Button>
