@@ -1,28 +1,37 @@
 {
-    "franchise": [
-        {
-            "id": 1,
-            "userId": 1,
-            "name": "traesXbens",
-            "maddenNum": 20,
-            "year": 20,
-            "private": true,
-            "online": true
-        }
-    ],
-    "recruit": [
-        {
-            
-        }
-    ],
-    "draft":[
-        {
-
-        }
-    ],
-    "projected":[
-        {
-            
-        }
-    ]
+  "franchise": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "traesXbens",
+      "year": 20,
+      "private": true,
+      "online": true
+    },
+    {
+      "userId": 1,
+      "name": "BensStrikeAgain",
+      "year": 20,
+      "online": true,
+      "private": false,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "name": "testtest",
+      "year": 20,
+      "online": false,
+      "private": false,
+      "id": 3
+    }
+  ],
+  "recruit": [
+    {}
+  ],
+  "draft": [
+    {}
+  ],
+  "projected": [
+    {}
+  ]
 }
