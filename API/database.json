@@ -26,7 +26,53 @@
     }
   ],
   "recruit": [
-    {}
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Tom Brady",
+      "age": 20,
+      "position": "QB",
+      "poistionType": "strong arm",
+      "school": "michigan",
+      "headline": "do not draft",
+      "news": "dude is a bum, do not draft him",
+      "projected_draft_round": 7,
+      "projected_draft_number": 224,
+      "scouted_draft_round": 7,
+      "scouted_draft_position": "late"
+    },
+    {
+      "userId": 1,
+      "name": "John Smith",
+      "age": 20,
+      "position": "ROLB",
+      "positionType": "Run Stopper",
+      "school": "Virginia",
+      "headline": "This is the headline",
+      "news": "this is the news",
+      "week": 11,
+      "projected_draft_round": 1,
+      "projected_draft_number": 12,
+      "scouted_draft_round": 1,
+      "scouted_draft_position": "Early",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "name": "John Smith II",
+      "age": 22,
+      "position": "QB",
+      "positionType": "Run Stopper",
+      "school": "Virginia",
+      "headline": "This is the headline",
+      "news": "this is the news",
+      "week": null,
+      "projected_draft_round": 3,
+      "projected_draft_number": 17,
+      "scouted_draft_round": 6,
+      "scouted_draft_position": "Mid",
+      "id": 3
+    }
   ],
   "draft": [
     {}

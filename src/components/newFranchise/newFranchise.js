@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import post from '../../modules/apiManager'
 import { Form, Grid, Button, Label, Modal } from "semantic-ui-react";
 import apiManager from "../../modules/apiManager";
 
