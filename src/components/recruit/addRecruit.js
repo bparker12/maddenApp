@@ -1,16 +1,17 @@
 import React, { /*useEffect*/useState, useRef } from "react";
-// import post from '../../modules/apiManager'
 import { Form, Label, Grid, Button } from "semantic-ui-react";
+import apiManager from "../../modules/apiManager";
 
 const AddRecruit = props => {
 
     const name = useRef('')
-    const age = useRef()
+    const age = useRef(20)
     const position = useRef('')
     const positionType = useRef('')
     const school = useRef('')
     const headline = useRef('')
     const news = useRef('')
+    const gender = useRef('')
 
 
     const [weekNum, setWeekNum] = useState(1)
@@ -20,7 +21,8 @@ const AddRecruit = props => {
     const [trueDraftRound, setTrueDraftRound] = useState(1)
     const [trueDraftpos, setTrueDraftPos] = useState('Early')
 
-    const week = range(1,17).concat(['Superbowl', 'Offseason Stage 1', 'Offseason Stage 2', 'Offseason Stage 3'])
+    const offseasonWeek = ['Superbowl', 'Offseason Stage 1', 'Offseason Stage 2', 'Offseason Stage 3']
+    const week = range(1,17).concat(offseasonWeek)
     const roundNum = range(1, 7)
     const pickNum = range(1, 32)
     const [pickPos] = React.useState([
@@ -44,7 +46,12 @@ const AddRecruit = props => {
                 setNewsThisWeek(true)
             } else {setNewsThisWeek(false)}
         } else if(e.target.id === 'weekNum'){
-            setWeekNum(parseInt(e.target.value))
+            console.log(offseasonWeek.includes(e.target.value), [e.target.value])
+            if(offseasonWeek.includes(e.target.value)){
+                setWeekNum(e.target.value)
+            } else {
+                setWeekNum(parseInt(e.target.value))
+            }
         } else if(e.target.id === 'projectedRoundNum'){
             setProjDraftRound(parseInt(e.target.value))
         } else if(e.target.id === 'projectedDraftNum'){
@@ -54,6 +61,30 @@ const AddRecruit = props => {
         } else if(e.target.id === 'trueDraftPosition'){
             setTrueDraftPos(e.target.value)
         }
+    }
+
+    const newRecruit = {
+        userId: 1,
+        name: name.current.value,
+        age: parseInt(age.current.value),
+        position: position.current.value,
+        positionType: positionType.current.value,
+        school: school.current.value,
+        headline: headline.current.value,
+        news: news.current.value,
+        week: weekNum,
+        projected_draft_round: projDraftRound,
+        projected_draft_number: projDraftnum,
+        scouted_draft_round: trueDraftRound,
+        scouted_draft_position: trueDraftpos,
+    }
+    
+    const postRecruit = (e) => {
+        e.preventDefault();
+        apiManager.post("recruit", newRecruit)
+        .then(() => {
+            props.history.push("/")
+        })
     }
 
     return (
@@ -106,9 +137,17 @@ const AddRecruit = props => {
                 <Form.Field>
                     <input required type='string' id='name' ref = {name}/>
                 </Form.Field>
+                    <Label size='big'>Headline</Label>
+                <Form.Field>
+                    <input required type='string' id='headline' ref = {headline}/>
+                </Form.Field>
+                    <Label size='big'>News</Label>
+                <Form.Field>
+                    <input required type='string' id='news' ref = {news}/>
+                </Form.Field>
                     <Label size='big'>Age</Label>
                 <Form.Field>
-                    <input type='number' min="20" max='24' id='age' ref = {age}/>
+                    <input type='number' min="20" max='24' id='age' defaultValue={21} ref = {age}/>
                 </Form.Field>
                     <Label size='big'>Position</Label>
                 <Form.Field>
@@ -182,15 +221,7 @@ const AddRecruit = props => {
                         ))}
                     </datalist>
                 </Form.Field>
-                    <Label size='big'>Headline</Label>
-                <Form.Field>
-                    <input required type='string' id='headline' ref = {headline}/>
-                </Form.Field>
-                    <Label size='big'>News</Label>
-                <Form.Field>
-                    <input required type='string' id='news' ref = {news}/>
-                </Form.Field>
-            <Button type='submit'> Submit </Button>
+            <Button type='submit' onClick={postRecruit}> Submit </Button>
             </React.Fragment>
             :
             <React.Fragment>
