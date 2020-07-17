@@ -15,8 +15,7 @@ const NavBar = props => {
         .then(setFranchises)
     }
 
-    useEffect(() => { getFranchises()
-    })
+    useEffect(getFranchises, [])
 
     const franchiseSelect = (e, data) => {
         console.log("click works", data.text)
@@ -47,6 +46,7 @@ const NavBar = props => {
                             />
                             )                             
                             )
+                            
                         }
                     </Dropdown.Menu>
                 </Dropdown>
