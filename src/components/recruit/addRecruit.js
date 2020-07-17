@@ -11,7 +11,6 @@ const AddRecruit = props => {
     const school = useRef('')
     const headline = useRef('')
     const news = useRef('')
-    const gender = useRef('')
 
 
     const [weekNum, setWeekNum] = useState(1)
