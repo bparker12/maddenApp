@@ -1,11 +1,26 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { Menu, Dropdown } from 'semantic-ui-react'
 import Madden_Tracker_Logo from './Madden_Tracker_Logo.png'
 import './navbar.css'
+import apiManager from "../../modules/apiManager"
 
 
 const NavBar = props => {
+
+    const [franchises, setFranchises] = useState([])
+
+    const getFranchises = () => {
+        apiManager.getAll('franchise')
+        .then(setFranchises)
+    }
+
+    useEffect(() => { getFranchises()
+    })
+
+    const franchiseSelect = (e, data) => {
+        console.log("click works", data.text)
+    }
 
     return (
         <nav>
@@ -22,7 +37,17 @@ const NavBar = props => {
                 </Menu.Item>
                 <Dropdown item text='Franchise Select'>
                     <Dropdown.Menu>
-                        <Dropdown.Item>Insert Franchises here</Dropdown.Item>
+                        {
+                            franchises.map((franchise) => (
+                            <Dropdown.Item
+                                key={franchise.id}
+                                value={franchise.id}
+                                text={franchise.name}
+                                onClick={franchiseSelect}
+                            />
+                            )                             
+                            )
+                        }
                     </Dropdown.Menu>
                 </Dropdown>
                 
