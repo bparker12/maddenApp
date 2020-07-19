@@ -18,7 +18,7 @@ const NavBar = props => {
     useEffect(getFranchises, [])
 
     const franchiseSelect = (e, data) => {
-        console.log("click works", data.text)
+        props.history.push(`/${data.text}`)
     }
 
     return (
@@ -28,7 +28,7 @@ const NavBar = props => {
                 <Menu.Item header >
                     <Link to='/'> MaddenApp </Link>
                 </Menu.Item>
-                <Menu.Item 
+                <Menu.Item
                     name='Profile'
                 />
                 <Menu.Item>
@@ -44,18 +44,17 @@ const NavBar = props => {
                                 text={franchise.name}
                                 onClick={franchiseSelect}
                             />
-                            )                             
-                            )
-                            
+                            ))
+
                         }
                     </Dropdown.Menu>
                 </Dropdown>
-                
+
                 <Menu.Menu position='right'>
                     <Menu.Item header>
                         Username here
                     </Menu.Item>
-                    <Menu.Item 
+                    <Menu.Item
                         name='Logout'
                     />
                 </Menu.Menu>

@@ -11,7 +11,7 @@ export default {
       url += `?${queryParams}`
     }
     return fetch(url)
-    // .then( data => data.json() )
+    .then( data => data.json())
   },
   delete(database, id) {
     return fetch(`${remoteURL}/${database}/${id}`, {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Route, Switch } from "react-router-dom"
+import { Route, Switch, useParams } from "react-router-dom"
 import { withRouter } from "react-router-dom"
 import HomePage from "./components/homepage/homePage"
 import NewFranchise from "./components/newFranchise/newFranchise"
