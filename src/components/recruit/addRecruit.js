@@ -77,7 +77,7 @@ const AddRecruit = props => {
         scouted_draft_round: trueDraftRound,
         scouted_draft_position: trueDraftpos,
     }
-    
+
     const postRecruit = (e) => {
         e.preventDefault();
         apiManager.post("recruit", newRecruit)
@@ -87,7 +87,7 @@ const AddRecruit = props => {
     }
 
     return (
-        
+
         <Grid style={{ padding: '30px'}} >
             <Form>
             {newsThisWeek?

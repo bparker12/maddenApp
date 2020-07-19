@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react"
-import { Route } from "react-router-dom"
+import { Route, Switch, useParams } from "react-router-dom"
 import { withRouter } from "react-router-dom"
 import HomePage from "./components/homepage/homePage"
 import NewFranchise from "./components/newFranchise/newFranchise"
 import AddRecruit from './components/recruit/addRecruit'
+import FranchiseHome from './components/franchiseHome/franchiseHome'
 
 const ApplicationViews = () => {
 
     return (
-        <React.Fragment>
+        <Switch>
             <Route
                 exact path="/" render={props => {
                     return <HomePage {...props} />
@@ -24,7 +25,12 @@ const ApplicationViews = () => {
                     return <AddRecruit {...props} />
                 }}
             />
-        </React.Fragment>
+            <Route
+                path='/:franchiseName' render={props => {
+                    return <FranchiseHome {...props} />
+                }}
+            />
+        </Switch>
     )
 }
 export default ApplicationViews
