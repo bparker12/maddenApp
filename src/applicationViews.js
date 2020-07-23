@@ -21,7 +21,7 @@ const ApplicationViews = () => {
                 }}
             />
             <Route
-                path='/addrecruit' render={props => {
+                path='/:franchiseName/addrecruit' render={props => {
                     return <AddRecruit {...props} />
                 }}
             />

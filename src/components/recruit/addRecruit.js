@@ -1,8 +1,14 @@
-import React, { /*useEffect*/useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { useLocation } from "react-router-dom"
 import { Form, Label, Grid, Button } from "semantic-ui-react";
 import apiManager from "../../modules/apiManager";
 
 const AddRecruit = props => {
+
+    //https://stackoverflow.com/questions/59464337/how-to-send-params-in-usehistory-of-react-router-dom
+    const location = useLocation()
+    const currentFranchise = location.state.franchiseName
+    const franchiseId = location.state.franchiseId
 
     const name = useRef('')
     const age = useRef(20)
@@ -11,7 +17,6 @@ const AddRecruit = props => {
     const school = useRef('')
     const headline = useRef('')
     const news = useRef('')
-
 
     const [weekNum, setWeekNum] = useState(1)
     const [newsThisWeek, setNewsThisWeek] = useState(false)
@@ -61,26 +66,25 @@ const AddRecruit = props => {
             setTrueDraftPos(e.target.value)
         }
     }
-
-    const newRecruit = {
-        userId: 1,
-        name: name.current.value,
-        age: parseInt(age.current.value),
-        position: position.current.value,
-        positionType: positionType.current.value,
-        school: school.current.value,
-        headline: headline.current.value,
-        news: news.current.value,
-        week: weekNum,
-        projected_draft_round: projDraftRound,
-        projected_draft_number: projDraftnum,
-        scouted_draft_round: trueDraftRound,
-        scouted_draft_position: trueDraftpos,
-    }
-
+    
     const postRecruit = (e) => {
+        const newRecruit = {
+            userId: 1,
+            name: name.current.value,
+            age: parseInt(age.current.value),
+            position: position.current.value,
+            positionType: positionType.current.value,
+            school: school.current.value,
+            headline: headline.current.value,
+            news: news.current.value,
+            week: weekNum,
+            projected_draft_round: projDraftRound,
+            projected_draft_number: projDraftnum,
+            scouted_draft_round: trueDraftRound,
+            scouted_draft_position: trueDraftpos,
+        }
         e.preventDefault();
-        apiManager.post("recruit", newRecruit)
+        apiManager.post("recruits", newRecruit)
         .then(() => {
             props.history.push("/")
         })
@@ -134,7 +138,7 @@ const AddRecruit = props => {
                 </Form.Field>
                     <Label size='big'>Recruit Name</Label>
                 <Form.Field>
-                    <input required type='string' id='name' ref = {name}/>
+                    <input required type='string' id='name' defaultValue=' ' ref = {name}/>
                 </Form.Field>
                     <Label size='big'>Headline</Label>
                 <Form.Field>
