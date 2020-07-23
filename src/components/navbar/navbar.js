@@ -11,14 +11,14 @@ const NavBar = props => {
     const [franchises, setFranchises] = useState([])
 
     const getFranchises = () => {
-        apiManager.getAll('franchise')
+        apiManager.getAll('franchises')
         .then(setFranchises)
     }
 
     useEffect(getFranchises, [])
 
     const franchiseSelect = (e, data) => {
-        props.history.push(`/${data.text}`)
+        props.history.push(`/${data.text}`, {franchiseId: data.value})
     }
 
     return (

@@ -55,7 +55,7 @@ const NewFranchise = props => {
 
     const postFranchise = (e) => {
         e.preventDefault();
-        apiManager.post("franchise", newFranchise)
+        apiManager.post("franchises", newFranchise)
         .then(() => {
             setModal(!openModal)
             props.history.push("/")

@@ -1,5 +1,5 @@
 {
-  "franchise": [
+  "franchises": [
     {
       "id": 1,
       "userId": 1,
@@ -25,7 +25,7 @@
       "id": 3
     }
   ],
-  "recruit": [
+  "recruits": [
     {
       "id": 1,
       "userId": 1,
@@ -74,13 +74,24 @@
       "id": 3
     }
   ],
-  "draft": [
+  "franchiseYears": [
+    {
+        "name": 2019,
+        "franchiseId": 1,
+        "recruitId": 1,
+        "id": 1
+    },
+    {
+        "name": 2019,
+        "franchiseId": 2,
+        "recruitId": 2,
+        "id": 1
+    }
+  ],
+  "projecteds": [
     {}
   ],
-  "projected": [
-    {}
-  ],
-  "position": [
+  "positions": [
       {
           "id": 1,
           "name": "Quarterback",
@@ -187,7 +198,7 @@
           "abbrev": "P"
       }
   ],
-  "type": [
+  "types": [
         {
           "id": 1,
           "name": "Strong Arm"
@@ -289,7 +300,7 @@
             "name": "Speed Rusher"
         }
   ],
-    "positionType": [
+    "positionTypes": [
         {
             "id": 1,
             "positionId": 1,
