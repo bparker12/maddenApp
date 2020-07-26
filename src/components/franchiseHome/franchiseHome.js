@@ -24,7 +24,7 @@ const FranchiseHome = (props) => {
 
     return (
         <React.Fragment>
-        <Grid divided>
+        <Grid divided style={{ padding: '30px'}}>
             <Grid.Row columns={2} >
                 {currentFranchise.map((franchise) => (
                     <Grid.Column

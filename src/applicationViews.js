@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { Route, Switch, useParams } from "react-router-dom"
-import { withRouter } from "react-router-dom"
+// import { withRouter } from "react-router-dom"
 import HomePage from "./components/homepage/homePage"
 import NewFranchise from "./components/newFranchise/newFranchise"
 import AddRecruit from './components/recruit/addRecruit'
 import FranchiseHome from './components/franchiseHome/franchiseHome'
+import UpdateRecruit from './components/recruit/updateRecruit'
 
 const ApplicationViews = () => {
 
@@ -28,6 +29,11 @@ const ApplicationViews = () => {
             <Route
                 path='/:franchiseName' render={props => {
                     return <FranchiseHome {...props} />
+                }}
+            />
+            <Route
+                path='/:franchiseName/:year/:recruit/update' render={props => {
+                    return <UpdateRecruit {...props} />
                 }}
             />
         </Switch>
