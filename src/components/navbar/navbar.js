@@ -11,7 +11,7 @@ const NavBar = props => {
     const [franchises, setFranchises] = useState([])
 
     const getFranchises = () => {
-        apiManager.getAll('franchise')
+        apiManager.getAll('franchises')
         .then(setFranchises)
     }
 

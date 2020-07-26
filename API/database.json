@@ -1,5 +1,5 @@
 {
-  "franchise": [
+  "franchises": [
     {
       "id": 1,
       "userId": 1,
@@ -25,7 +25,7 @@
       "id": 3
     }
   ],
-  "recruit": [
+  "recruits": [
     {
       "id": 1,
       "userId": 1,
@@ -74,13 +74,13 @@
       "id": 3
     }
   ],
-  "draft": [
+  "drafts": [
     {}
   ],
   "projected": [
     {}
   ],
-  "position": [
+  "positions": [
       {
           "id": 1,
           "name": "Quarterback",
@@ -187,7 +187,7 @@
           "abbrev": "P"
       }
   ],
-  "type": [
+  "types": [
         {
           "id": 1,
           "name": "Strong Arm"
@@ -289,326 +289,326 @@
             "name": "Speed Rusher"
         }
   ],
-    "positionType": [
+    "positionTypes": [
         {
             "id": 1,
-            "positionId": 1,
-            "typeId": 1
+            "positionsId": 1,
+            "typesId": 1
         },
         {
             "id": 2,
-            "positionId": 1,
-            "typeId": 2
+            "positionsId": 1,
+            "typesId": 2
         },
         {
             "id": 3,
-            "positionId": 1,
-            "typeId": 3
+            "positionsId": 1,
+            "typesId": 3
         },
         {
             "id": 4,
-            "positionId": 1,
-            "typeId": 4
+            "positionsId": 1,
+            "typesId": 4
         },
         {
             "id": 5,
-            "positionId": 2,
-            "typeId": 5
+            "positionsId": 2,
+            "typesId": 5
         },
         {
             "id": 6,
-            "positionId": 2,
-            "typeId": 6
+            "positionsId": 2,
+            "typesId": 6
         },
         {
             "id": 7,
-            "positionId": 2,
-            "typeId": 7
+            "positionsId": 2,
+            "typesId": 7
         },
         {
             "id": 8,
-            "positionId": 3,
-            "typeId": 8
+            "positionsId": 3,
+            "typesId": 8
         },
         {
             "id": 9,
-            "positionId": 3,
-            "typeId": 9
+            "positionsId": 3,
+            "typesId": 9
         },
         {
             "id": 10,
-            "positionId": 4,
-            "typeId": 10
+            "positionsId": 4,
+            "typesId": 10
         },
         {
             "id": 11,
-            "positionId": 4,
-            "typeId": 11
+            "positionsId": 4,
+            "typesId": 11
         },
         {
             "id": 12,
-            "positionId": 4,
-            "typeId": 12
+            "positionsId": 4,
+            "typesId": 12
         },
         {
             "id": 13,
-            "positionId": 4,
-            "typeId": 13
+            "positionsId": 4,
+            "typesId": 13
         },
         {
             "id": 14,
-            "positionId": 5,
-            "typeId": 11
+            "positionsId": 5,
+            "typesId": 11
         },
         {
             "id": 15,
-            "positionId": 5,
-            "typeId": 13
+            "positionsId": 5,
+            "typesId": 13
         },
         {
             "id": 16,
-            "positionId": 5,
-            "typeId": 8
+            "positionsId": 5,
+            "typesId": 8
         },
         {
             "id": 17,
-            "positionId": 6,
-            "typeId": 14
+            "positionsId": 6,
+            "typesId": 14
         },
         {
             "id": 18,
-            "positionId": 6,
-            "typeId": 15
+            "positionsId": 6,
+            "typesId": 15
         },
         {
             "id": 19,
-            "positionId": 6,
-            "typeId": 16
+            "positionsId": 6,
+            "typesId": 16
         },
         {
             "id": 20,
-            "positionId": 7,
-            "typeId": 14
+            "positionsId": 7,
+            "typesId": 14
         },
         {
             "id": 21,
-            "positionId": 7,
-            "typeId": 15
+            "positionsId": 7,
+            "typesId": 15
         },
         {
             "id": 22,
-            "positionId": 7,
-            "typeId": 16
+            "positionsId": 7,
+            "typesId": 16
         },
         {
             "id": 23,
-            "positionId": 8,
-            "typeId": 14
+            "positionsId": 8,
+            "typesId": 14
         },
         {
             "id": 24,
-            "positionId": 8,
-            "typeId": 15
+            "positionsId": 8,
+            "typesId": 15
         },
         {
             "id": 25,
-            "positionId": 8,
-            "typeId": 16
+            "positionsId": 8,
+            "typesId": 16
         },
         {
             "id": 26,
-            "positionId": 9,
-            "typeId": 14
+            "positionsId": 9,
+            "typesId": 14
         },
         {
             "id": 27,
-            "positionId": 9,
-            "typeId": 15
+            "positionsId": 9,
+            "typesId": 15
         },
         {
             "id": 28,
-            "positionId": 9,
-            "typeId": 16
+            "positionsId": 9,
+            "typesId": 16
         },
         {
             "id": 29,
-            "positionId": 10,
-            "typeId": 14
+            "positionsId": 10,
+            "typesId": 14
         },
         {
             "id": 30,
-            "positionId": 10,
-            "typeId": 15
+            "positionsId": 10,
+            "typesId": 15
         },
         {
             "id": 31,
-            "positionId": 10,
-            "typeId": 16
+            "positionsId": 10,
+            "typesId": 16
         },
         {
             "id": 32,
-            "positionId": 11,
-            "typeId": 17
+            "positionsId": 11,
+            "typesId": 17
         },
         {
             "id": 33,
-            "positionId": 11,
-            "typeId": 24
+            "positionsId": 11,
+            "typesId": 24
         },
         {
             "id": 34,
-            "positionId": 11,
-            "typeId": 25
+            "positionsId": 11,
+            "typesId": 25
         },
         {
             "id": 35,
-            "positionId": 12,
-            "typeId": 17
+            "positionsId": 12,
+            "typesId": 17
         },
         {
             "id": 36,
-            "positionId": 12,
-            "typeId": 24
+            "positionsId": 12,
+            "typesId": 24
         },
         {
             "id": 37,
-            "positionId": 12,
-            "typeId": 25
+            "positionsId": 12,
+            "typesId": 25
         },
         {
             "id": 38,
-            "positionId": 13,
-            "typeId": 17
+            "positionsId": 13,
+            "typesId": 17
         },
         {
             "id": 39,
-            "positionId": 13,
-            "typeId": 24
+            "positionsId": 13,
+            "typesId": 24
         },
         {
             "id": 40,
-            "positionId": 13,
-            "typeId": 25
+            "positionsId": 13,
+            "typesId": 25
         },
         {
             "id": 41,
-            "positionId": 14,
-            "typeId": 17
+            "positionsId": 14,
+            "typesId": 17
         },
         {
             "id": 42,
-            "positionId": 14,
-            "typeId": 18
+            "positionsId": 14,
+            "typesId": 18
         },
         {
             "id": 43,
-            "positionId": 14,
-            "typeId": 24
+            "positionsId": 14,
+            "typesId": 24
         },
         {
             "id": 44,
-            "positionId": 14,
-            "typeId": 25
+            "positionsId": 14,
+            "typesId": 25
         },
         {
             "id": 45,
-            "positionId": 16,
-            "typeId": 17
+            "positionsId": 16,
+            "typesId": 17
         },
         {
             "id": 46,
-            "positionId": 16,
-            "typeId": 18
+            "positionsId": 16,
+            "typesId": 18
         },
         {
             "id": 47,
-            "positionId": 16,
-            "typeId": 24
+            "positionsId": 16,
+            "typesId": 24
         },
         {
             "id": 48,
-            "positionId": 16,
-            "typeId": 25
+            "positionsId": 16,
+            "typesId": 25
         },
         {
             "id": 49,
-            "positionId": 15,
-            "typeId": 2
+            "positionsId": 15,
+            "typesId": 2
         },
         {
             "id": 50,
-            "positionId": 15,
-            "typeId": 17
+            "positionsId": 15,
+            "typesId": 17
         },
         {
             "id": 51,
-            "positionId": 15,
-            "typeId": 18
+            "positionsId": 15,
+            "typesId": 18
         },
         {
             "id": 52,
-            "positionId": 17,
-            "typeId": 19
+            "positionsId": 17,
+            "typesId": 19
         },
         {
             "id": 53,
-            "positionId": 17,
-            "typeId": 20
+            "positionsId": 17,
+            "typesId": 20
         },
         {
             "id": 54,
-            "positionId": 17,
-            "typeId": 21
+            "positionsId": 17,
+            "typesId": 12   
         },
         {
             "id": 55,
-            "positionId": 18,
-            "typeId": 22
+            "positionsId": 18,
+            "typesId": 22
         },
         {
             "id": 56,
-            "positionId": 18,
-            "typeId": 20
+            "positionsId": 18,
+            "typesId": 20
         },
         {
             "id": 57,
-            "positionId": 18,
-            "typeId": 21
+            "positionsId": 18,
+            "typesId": 21
         },
         {
             "id": 58,
-            "positionId": 19,
-            "typeId": 22
+            "positionsId": 19,
+            "typesId": 22
         },
         {
             "id": 59,
-            "positionId": 19,
-            "typeId": 20
+            "positionsId": 19,
+            "typesId": 20
         },
         {
             "id": 60,
-            "positionId": 19,
-            "typeId": 21
+            "positionsId": 19,
+            "typesId": 21
         },
         {
             "id": 61,
-            "positionId": 20,
-            "typeId": 16
+            "positionsId": 20,
+            "typesId": 16
         },
         {
             "id": 62,
-            "positionId": 20,
-            "typeId": 23
+            "positionsId": 20,
+            "typesId": 23
         },
         {
             "id": 63,
-            "positionId": 21,
-            "typeId": 16
+            "positionsId": 21,
+            "typesId": 16
         },
         {
             "id": 64,
-            "positionId": 21,
-            "typeId": 23
+            "positionsId": 21,
+            "typesId": 23
         }
     ]
 }

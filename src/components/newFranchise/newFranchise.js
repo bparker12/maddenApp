@@ -50,12 +50,12 @@ const NewFranchise = props => {
         name: name.current.value,
         year: maddenYear,
         online: onlineLeague,
-        private: privateLeague 
+        private: privateLeague
     }
 
     const postFranchise = (e) => {
         e.preventDefault();
-        apiManager.post("franchise", newFranchise)
+        apiManager.post("franchises", newFranchise)
         .then(() => {
             setModal(!openModal)
             props.history.push("/")
