@@ -74,10 +74,21 @@
       "id": 3
     }
   ],
-  "drafts": [
-    {}
+  "franchiseYears": [
+    {
+        "name": 2019,
+        "franchiseId": 1,
+        "recruitId": 1,
+        "id": 1
+    },
+    {
+        "name": 2019,
+        "franchiseId": 2,
+        "recruitId": 2,
+        "id": 1
+    }
   ],
-  "projected": [
+  "projecteds": [
     {}
   ],
   "positions": [
@@ -558,7 +569,7 @@
         {
             "id": 54,
             "positionsId": 17,
-            "typesId": 12   
+            "typesId": 12
         },
         {
             "id": 55,

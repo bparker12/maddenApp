@@ -1,8 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useLocation } from "react-router-dom"
 import { Form, Label, Grid, Button } from "semantic-ui-react";
 import apiManager from "../../modules/apiManager";
 
 const AddRecruit = props => {
+
+    //https://stackoverflow.com/questions/59464337/how-to-send-params-in-usehistory-of-react-router-dom
+    const location = useLocation()
+    const currentFranchise = location.state.franchiseName
+    const franchiseId = location.state.franchiseId
 
     const name = useRef('')
     const age = useRef(20)
@@ -97,26 +103,24 @@ const AddRecruit = props => {
         }
     }
 
-    //takes all the input collected for a new recruit for it to be pushed to database
-    const newRecruit = {
-        userId: 1,
-        name: name.current.value,
-        age: parseInt(age.current.value),
-        positionType: positionTypeValue,
-        school: school.current.value,
-        headline: headline.current.value,
-        news: news.current.value,
-        week: weekNum,
-        projected_draft_round: projDraftRound,
-        projected_draft_number: projDraftnum,
-        scouted_draft_round: trueDraftRound,
-        scouted_draft_position: trueDraftpos,
-    }
-
     //takes the newRecruit Object and pushes to database
     const postRecruit = (e) => {
+        const newRecruit = {
+            userId: 1,
+            name: name.current.value,
+            age: parseInt(age.current.value),
+            positionType: positionTypeValue,
+            school: school.current.value,
+            headline: headline.current.value,
+            news: news.current.value,
+            week: weekNum,
+            projected_draft_round: projDraftRound,
+            projected_draft_number: projDraftnum,
+            scouted_draft_round: trueDraftRound,
+            scouted_draft_position: trueDraftpos,
+        }
         e.preventDefault();
-        apiManager.post("recruit", newRecruit)
+        apiManager.post("recruits", newRecruit)
         .then(() => {
             props.history.push("/")
         })
@@ -170,7 +174,7 @@ const AddRecruit = props => {
                 </Form.Field>
                     <Label size='big'>Recruit Name</Label>
                 <Form.Field>
-                    <input required type='string' id='name'  ref = {name}/>
+                    <input required type='string' id='name' defaultValue=' ' ref = {name}/>
                 </Form.Field>
                     <Label size='big'>Headline</Label>
                 <Form.Field>
