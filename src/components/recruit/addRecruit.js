@@ -331,6 +331,11 @@ const AddRecruit = props => {
                     ))}
                     </select>
                 </Form.Field>
+                        <Button
+                        onClick={() => props.history.push(`/${currentFranchise}`, {franchiseId: franchiseId})}
+                        >
+                        Return to Franchise
+                        </Button>
             </React.Fragment>
             }
             </Form>
