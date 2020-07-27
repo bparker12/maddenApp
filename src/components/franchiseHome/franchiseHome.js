@@ -16,7 +16,7 @@ const FranchiseHome = (props) => {
     const getFranchise = () => {
         apiManager.getAll("franchises", `name=${franchiseUrl}`)
         .then(setCurrentFranchise)
-        apiManager.getAll("franchiseYears", `franchiseId=${franchiseId}`)
+        apiManager.getAll("years", `franchiseId=${franchiseId}`)
         .then(setFranchiseYears)
     }
 
