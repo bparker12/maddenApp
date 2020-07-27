@@ -15,14 +15,6 @@
       "online": true,
       "private": false,
       "id": 2
-    },
-    {
-      "userId": 1,
-      "name": "blah",
-      "year": 20,
-      "online": true,
-      "private": true,
-      "id": 3
     }
   ],
   "recruits": [
@@ -84,11 +76,6 @@
       "name": 2020,
       "franchiseId": 1,
       "id": 2
-    },
-    {
-      "name": 2020,
-      "franchiseId": 3,
-      "id": 3
     }
   ],
   "draftNews": [

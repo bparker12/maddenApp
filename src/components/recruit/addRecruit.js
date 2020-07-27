@@ -58,6 +58,7 @@ const AddRecruit = props => {
         {label: 'Late', value: 3}
     ])
 
+    //this takes the current position showing, and filters the positionTypes state to only show the types for that position
     const positionTypeSelectionFilter = (position) => {
         let positionFilter = positionTypes.filter(type => type.positionsId === parseInt(position))
         const firstObject = positionFilter[0]

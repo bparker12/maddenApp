@@ -35,7 +35,7 @@ const FranchiseHome = (props) => {
                     <h5>Current Year: </h5>
                     <h5>Last week Recorded: </h5>
                 <Button
-                //https://stackoverflow.com/questions/59464337/how-to-send-params-in-usehistory-of-react-router-dom
+                //https://stackoverflow.com/questions/59464337/how-to-send-params-in-usehistory-of-react-router-dom - this shows you can pass in objects into a push
                 onClick={() => props.history.push(`/${franchiseUrl}/addrecruit`, {franchiseName: franchise.name, franchiseId: franchise.id })}
                 >
                 Add Recruit
