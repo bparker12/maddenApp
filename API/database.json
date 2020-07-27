@@ -15,14 +15,6 @@
       "online": true,
       "private": false,
       "id": 2
-    },
-    {
-      "userId": 1,
-      "name": "testtest",
-      "year": 20,
-      "online": false,
-      "private": false,
-      "id": 3
     }
   ],
   "recruits": [
@@ -74,552 +66,560 @@
       "id": 3
     }
   ],
-  "franchiseYears": [
+  "years": [
     {
-        "name": 2019,
-        "franchiseId": 1,
-        "recruitId": 1,
-        "id": 1
+      "name": 2019,
+      "franchiseId": 1,
+      "id": 1
     },
     {
-        "name": 2019,
-        "franchiseId": 2,
-        "recruitId": 2,
-        "id": 1
+      "name": 2020,
+      "franchiseId": 1,
+      "id": 2
+    }
+  ],
+  "draftNews": [
+    {
+      "yearId": 1,
+      "recruitId": 1,
+      "newsWeek": 1,
+      "headline": "boring stuff here",
+      "news": "blah blah blah",
+      "id": 1
     }
   ],
   "projecteds": [
     {}
   ],
   "positions": [
-      {
-          "id": 1,
-          "name": "Quarterback",
-          "abbrev": "QB"
-      },
-      {
-          "id": 2,
-          "name": "Running Back",
-          "abbrev": "RB"
-      },
-      {
-          "id": 3,
-          "name": "Full Back",
-          "abbrev": "FB"
-      },
-      {
-          "id": 4,
-          "name": "Wide Receiver",
-          "abbrev": "WR"
-      },
-      {
-          "id": 5,
-          "name": "Tight End",
-          "abbrev": "TE"
-      },
-      {
-          "id": 6,
-          "name": "Left Tackle",
-          "abbrev": "LT"
-      },
-      {
-          "id": 7,
-          "name": "Left Guard",
-          "abbrev": "LG"
-      },
-      {
-          "id": 8,
-          "name": "Center",
-          "abbrev": "C"
-      },
-      {
-          "id": 9,
-          "name": "Right Guard",
-          "abbrev": "RG"
-      },
-      {
-          "id": 10,
-          "name": "Right Tackle",
-          "abbrev": "RT"
-      },
-      {
-          "id": 11,
-          "name": "Left End",
-          "abbrev": "LE"
-      },
-      {
-          "id": 12,
-          "name": "Defense Tackle",
-          "abbrev": "DT"
-      },
-      {
-          "id": 13,
-          "name": "Right End",
-          "abbrev": "RE"
-      },
-      {
-          "id": 14,
-          "name": "Left Outside Linebacker",
-          "abbrev": "LOLB"
-      },
-      {
-          "id": 15,
-          "name": "Middle Linebacker",
-          "abbrev": "MLB"
-      },
-      {
-          "id": 16,
-          "name": "Right Outside Linebacker",
-          "abbrev": "ROLB"
-      },
-      {
-          "id": 17,
-          "name": "Cornerback",
-          "abbrev": "CB"
-      },
-      {
-          "id": 18,
-          "name": "Free Safety",
-          "abbrev": "FS"
-      },
-      {
-          "id": 19,
-          "name": "Strong Safety",
-          "abbrev": "SS"
-      },
-      {
-          "id": 20,
-          "name": "Kicker",
-          "abbrev": "K"
-      },
-      {
-          "id": 21,
-          "name": "Punter",
-          "abbrev": "P"
-      }
+    {
+      "id": 1,
+      "name": "Quarterback",
+      "abbrev": "QB"
+    },
+    {
+      "id": 2,
+      "name": "Running Back",
+      "abbrev": "RB"
+    },
+    {
+      "id": 3,
+      "name": "Full Back",
+      "abbrev": "FB"
+    },
+    {
+      "id": 4,
+      "name": "Wide Receiver",
+      "abbrev": "WR"
+    },
+    {
+      "id": 5,
+      "name": "Tight End",
+      "abbrev": "TE"
+    },
+    {
+      "id": 6,
+      "name": "Left Tackle",
+      "abbrev": "LT"
+    },
+    {
+      "id": 7,
+      "name": "Left Guard",
+      "abbrev": "LG"
+    },
+    {
+      "id": 8,
+      "name": "Center",
+      "abbrev": "C"
+    },
+    {
+      "id": 9,
+      "name": "Right Guard",
+      "abbrev": "RG"
+    },
+    {
+      "id": 10,
+      "name": "Right Tackle",
+      "abbrev": "RT"
+    },
+    {
+      "id": 11,
+      "name": "Left End",
+      "abbrev": "LE"
+    },
+    {
+      "id": 12,
+      "name": "Defense Tackle",
+      "abbrev": "DT"
+    },
+    {
+      "id": 13,
+      "name": "Right End",
+      "abbrev": "RE"
+    },
+    {
+      "id": 14,
+      "name": "Left Outside Linebacker",
+      "abbrev": "LOLB"
+    },
+    {
+      "id": 15,
+      "name": "Middle Linebacker",
+      "abbrev": "MLB"
+    },
+    {
+      "id": 16,
+      "name": "Right Outside Linebacker",
+      "abbrev": "ROLB"
+    },
+    {
+      "id": 17,
+      "name": "Cornerback",
+      "abbrev": "CB"
+    },
+    {
+      "id": 18,
+      "name": "Free Safety",
+      "abbrev": "FS"
+    },
+    {
+      "id": 19,
+      "name": "Strong Safety",
+      "abbrev": "SS"
+    },
+    {
+      "id": 20,
+      "name": "Kicker",
+      "abbrev": "K"
+    },
+    {
+      "id": 21,
+      "name": "Punter",
+      "abbrev": "P"
+    }
   ],
   "types": [
-        {
-          "id": 1,
-          "name": "Strong Arm"
-        },
-        {
-          "id": 2,
-          "name": "Field General"
-        },
-        {
-            "id": 3,
-            "name": "Improviser"
-        },
-        {
-            "id": 4,
-            "name": "Scrambler"
-        },
-        {
-            "id": 5,
-            "name": "Power Back"
-        },
-        {
-            "id": 6,
-            "name": "Elusive Back"
-        },
-        {
-            "id": 7,
-            "name": "Receving Back"
-        },
-        {
-            "id": 8,
-            "name": "Blocking"
-        },
-        {
-            "id": 9,
-            "name": "Utility"
-        },
-        {
-            "id": 10,
-            "name": "Physical"
-        },
-        {
-            "id": 11,
-            "name": "Deep Threat"
-        },
-        {
-            "id": 12,
-            "name": "Slot"
-        },
-        {
-            "id": 13,
-            "name": "Posession"
-        },
-        {
-            "id": 14,
-            "name": "Agile"
-        },
-        {
-            "id": 15,
-            "name": "Pass Protector"
-        },
-        {
-            "id": 16,
-            "name": "Power"
-        },
-        {
-            "id": 17,
-            "name": "Run Stopper"
-        },
-        {
-            "id": 18,
-            "name": "Pass Coverage"
-        },
-        {
-            "id": 19,
-            "name": "Man to Man"
-        },
-        {
-            "id": 20,
-            "name": "Zone"
-        },
-        {
-            "id": 21,
-            "name": "Run Support"
-        },
-        {
-            "id": 22,
-            "name": "Hybrid"
-        },
-        {
-            "id": 23,
-            "name": "Accuracy"
-        },
-        {
-            "id": 24,
-            "name": "Power Rusher"
-        },
-        {
-            "id": 25,
-            "name": "Speed Rusher"
-        }
+    {
+      "id": 1,
+      "name": "Strong Arm"
+    },
+    {
+      "id": 2,
+      "name": "Field General"
+    },
+    {
+      "id": 3,
+      "name": "Improviser"
+    },
+    {
+      "id": 4,
+      "name": "Scrambler"
+    },
+    {
+      "id": 5,
+      "name": "Power Back"
+    },
+    {
+      "id": 6,
+      "name": "Elusive Back"
+    },
+    {
+      "id": 7,
+      "name": "Receving Back"
+    },
+    {
+      "id": 8,
+      "name": "Blocking"
+    },
+    {
+      "id": 9,
+      "name": "Utility"
+    },
+    {
+      "id": 10,
+      "name": "Physical"
+    },
+    {
+      "id": 11,
+      "name": "Deep Threat"
+    },
+    {
+      "id": 12,
+      "name": "Slot"
+    },
+    {
+      "id": 13,
+      "name": "Posession"
+    },
+    {
+      "id": 14,
+      "name": "Agile"
+    },
+    {
+      "id": 15,
+      "name": "Pass Protector"
+    },
+    {
+      "id": 16,
+      "name": "Power"
+    },
+    {
+      "id": 17,
+      "name": "Run Stopper"
+    },
+    {
+      "id": 18,
+      "name": "Pass Coverage"
+    },
+    {
+      "id": 19,
+      "name": "Man to Man"
+    },
+    {
+      "id": 20,
+      "name": "Zone"
+    },
+    {
+      "id": 21,
+      "name": "Run Support"
+    },
+    {
+      "id": 22,
+      "name": "Hybrid"
+    },
+    {
+      "id": 23,
+      "name": "Accuracy"
+    },
+    {
+      "id": 24,
+      "name": "Power Rusher"
+    },
+    {
+      "id": 25,
+      "name": "Speed Rusher"
+    }
   ],
-    "positionTypes": [
-        {
-            "id": 1,
-            "positionsId": 1,
-            "typesId": 1
-        },
-        {
-            "id": 2,
-            "positionsId": 1,
-            "typesId": 2
-        },
-        {
-            "id": 3,
-            "positionsId": 1,
-            "typesId": 3
-        },
-        {
-            "id": 4,
-            "positionsId": 1,
-            "typesId": 4
-        },
-        {
-            "id": 5,
-            "positionsId": 2,
-            "typesId": 5
-        },
-        {
-            "id": 6,
-            "positionsId": 2,
-            "typesId": 6
-        },
-        {
-            "id": 7,
-            "positionsId": 2,
-            "typesId": 7
-        },
-        {
-            "id": 8,
-            "positionsId": 3,
-            "typesId": 8
-        },
-        {
-            "id": 9,
-            "positionsId": 3,
-            "typesId": 9
-        },
-        {
-            "id": 10,
-            "positionsId": 4,
-            "typesId": 10
-        },
-        {
-            "id": 11,
-            "positionsId": 4,
-            "typesId": 11
-        },
-        {
-            "id": 12,
-            "positionsId": 4,
-            "typesId": 12
-        },
-        {
-            "id": 13,
-            "positionsId": 4,
-            "typesId": 13
-        },
-        {
-            "id": 14,
-            "positionsId": 5,
-            "typesId": 11
-        },
-        {
-            "id": 15,
-            "positionsId": 5,
-            "typesId": 13
-        },
-        {
-            "id": 16,
-            "positionsId": 5,
-            "typesId": 8
-        },
-        {
-            "id": 17,
-            "positionsId": 6,
-            "typesId": 14
-        },
-        {
-            "id": 18,
-            "positionsId": 6,
-            "typesId": 15
-        },
-        {
-            "id": 19,
-            "positionsId": 6,
-            "typesId": 16
-        },
-        {
-            "id": 20,
-            "positionsId": 7,
-            "typesId": 14
-        },
-        {
-            "id": 21,
-            "positionsId": 7,
-            "typesId": 15
-        },
-        {
-            "id": 22,
-            "positionsId": 7,
-            "typesId": 16
-        },
-        {
-            "id": 23,
-            "positionsId": 8,
-            "typesId": 14
-        },
-        {
-            "id": 24,
-            "positionsId": 8,
-            "typesId": 15
-        },
-        {
-            "id": 25,
-            "positionsId": 8,
-            "typesId": 16
-        },
-        {
-            "id": 26,
-            "positionsId": 9,
-            "typesId": 14
-        },
-        {
-            "id": 27,
-            "positionsId": 9,
-            "typesId": 15
-        },
-        {
-            "id": 28,
-            "positionsId": 9,
-            "typesId": 16
-        },
-        {
-            "id": 29,
-            "positionsId": 10,
-            "typesId": 14
-        },
-        {
-            "id": 30,
-            "positionsId": 10,
-            "typesId": 15
-        },
-        {
-            "id": 31,
-            "positionsId": 10,
-            "typesId": 16
-        },
-        {
-            "id": 32,
-            "positionsId": 11,
-            "typesId": 17
-        },
-        {
-            "id": 33,
-            "positionsId": 11,
-            "typesId": 24
-        },
-        {
-            "id": 34,
-            "positionsId": 11,
-            "typesId": 25
-        },
-        {
-            "id": 35,
-            "positionsId": 12,
-            "typesId": 17
-        },
-        {
-            "id": 36,
-            "positionsId": 12,
-            "typesId": 24
-        },
-        {
-            "id": 37,
-            "positionsId": 12,
-            "typesId": 25
-        },
-        {
-            "id": 38,
-            "positionsId": 13,
-            "typesId": 17
-        },
-        {
-            "id": 39,
-            "positionsId": 13,
-            "typesId": 24
-        },
-        {
-            "id": 40,
-            "positionsId": 13,
-            "typesId": 25
-        },
-        {
-            "id": 41,
-            "positionsId": 14,
-            "typesId": 17
-        },
-        {
-            "id": 42,
-            "positionsId": 14,
-            "typesId": 18
-        },
-        {
-            "id": 43,
-            "positionsId": 14,
-            "typesId": 24
-        },
-        {
-            "id": 44,
-            "positionsId": 14,
-            "typesId": 25
-        },
-        {
-            "id": 45,
-            "positionsId": 16,
-            "typesId": 17
-        },
-        {
-            "id": 46,
-            "positionsId": 16,
-            "typesId": 18
-        },
-        {
-            "id": 47,
-            "positionsId": 16,
-            "typesId": 24
-        },
-        {
-            "id": 48,
-            "positionsId": 16,
-            "typesId": 25
-        },
-        {
-            "id": 49,
-            "positionsId": 15,
-            "typesId": 2
-        },
-        {
-            "id": 50,
-            "positionsId": 15,
-            "typesId": 17
-        },
-        {
-            "id": 51,
-            "positionsId": 15,
-            "typesId": 18
-        },
-        {
-            "id": 52,
-            "positionsId": 17,
-            "typesId": 19
-        },
-        {
-            "id": 53,
-            "positionsId": 17,
-            "typesId": 20
-        },
-        {
-            "id": 54,
-            "positionsId": 17,
-            "typesId": 12
-        },
-        {
-            "id": 55,
-            "positionsId": 18,
-            "typesId": 22
-        },
-        {
-            "id": 56,
-            "positionsId": 18,
-            "typesId": 20
-        },
-        {
-            "id": 57,
-            "positionsId": 18,
-            "typesId": 21
-        },
-        {
-            "id": 58,
-            "positionsId": 19,
-            "typesId": 22
-        },
-        {
-            "id": 59,
-            "positionsId": 19,
-            "typesId": 20
-        },
-        {
-            "id": 60,
-            "positionsId": 19,
-            "typesId": 21
-        },
-        {
-            "id": 61,
-            "positionsId": 20,
-            "typesId": 16
-        },
-        {
-            "id": 62,
-            "positionsId": 20,
-            "typesId": 23
-        },
-        {
-            "id": 63,
-            "positionsId": 21,
-            "typesId": 16
-        },
-        {
-            "id": 64,
-            "positionsId": 21,
-            "typesId": 23
-        }
-    ]
+  "positionTypes": [
+    {
+      "id": 1,
+      "positionsId": 1,
+      "typesId": 1
+    },
+    {
+      "id": 2,
+      "positionsId": 1,
+      "typesId": 2
+    },
+    {
+      "id": 3,
+      "positionsId": 1,
+      "typesId": 3
+    },
+    {
+      "id": 4,
+      "positionsId": 1,
+      "typesId": 4
+    },
+    {
+      "id": 5,
+      "positionsId": 2,
+      "typesId": 5
+    },
+    {
+      "id": 6,
+      "positionsId": 2,
+      "typesId": 6
+    },
+    {
+      "id": 7,
+      "positionsId": 2,
+      "typesId": 7
+    },
+    {
+      "id": 8,
+      "positionsId": 3,
+      "typesId": 8
+    },
+    {
+      "id": 9,
+      "positionsId": 3,
+      "typesId": 9
+    },
+    {
+      "id": 10,
+      "positionsId": 4,
+      "typesId": 10
+    },
+    {
+      "id": 11,
+      "positionsId": 4,
+      "typesId": 11
+    },
+    {
+      "id": 12,
+      "positionsId": 4,
+      "typesId": 12
+    },
+    {
+      "id": 13,
+      "positionsId": 4,
+      "typesId": 13
+    },
+    {
+      "id": 14,
+      "positionsId": 5,
+      "typesId": 11
+    },
+    {
+      "id": 15,
+      "positionsId": 5,
+      "typesId": 13
+    },
+    {
+      "id": 16,
+      "positionsId": 5,
+      "typesId": 8
+    },
+    {
+      "id": 17,
+      "positionsId": 6,
+      "typesId": 14
+    },
+    {
+      "id": 18,
+      "positionsId": 6,
+      "typesId": 15
+    },
+    {
+      "id": 19,
+      "positionsId": 6,
+      "typesId": 16
+    },
+    {
+      "id": 20,
+      "positionsId": 7,
+      "typesId": 14
+    },
+    {
+      "id": 21,
+      "positionsId": 7,
+      "typesId": 15
+    },
+    {
+      "id": 22,
+      "positionsId": 7,
+      "typesId": 16
+    },
+    {
+      "id": 23,
+      "positionsId": 8,
+      "typesId": 14
+    },
+    {
+      "id": 24,
+      "positionsId": 8,
+      "typesId": 15
+    },
+    {
+      "id": 25,
+      "positionsId": 8,
+      "typesId": 16
+    },
+    {
+      "id": 26,
+      "positionsId": 9,
+      "typesId": 14
+    },
+    {
+      "id": 27,
+      "positionsId": 9,
+      "typesId": 15
+    },
+    {
+      "id": 28,
+      "positionsId": 9,
+      "typesId": 16
+    },
+    {
+      "id": 29,
+      "positionsId": 10,
+      "typesId": 14
+    },
+    {
+      "id": 30,
+      "positionsId": 10,
+      "typesId": 15
+    },
+    {
+      "id": 31,
+      "positionsId": 10,
+      "typesId": 16
+    },
+    {
+      "id": 32,
+      "positionsId": 11,
+      "typesId": 17
+    },
+    {
+      "id": 33,
+      "positionsId": 11,
+      "typesId": 24
+    },
+    {
+      "id": 34,
+      "positionsId": 11,
+      "typesId": 25
+    },
+    {
+      "id": 35,
+      "positionsId": 12,
+      "typesId": 17
+    },
+    {
+      "id": 36,
+      "positionsId": 12,
+      "typesId": 24
+    },
+    {
+      "id": 37,
+      "positionsId": 12,
+      "typesId": 25
+    },
+    {
+      "id": 38,
+      "positionsId": 13,
+      "typesId": 17
+    },
+    {
+      "id": 39,
+      "positionsId": 13,
+      "typesId": 24
+    },
+    {
+      "id": 40,
+      "positionsId": 13,
+      "typesId": 25
+    },
+    {
+      "id": 41,
+      "positionsId": 14,
+      "typesId": 17
+    },
+    {
+      "id": 42,
+      "positionsId": 14,
+      "typesId": 18
+    },
+    {
+      "id": 43,
+      "positionsId": 14,
+      "typesId": 24
+    },
+    {
+      "id": 44,
+      "positionsId": 14,
+      "typesId": 25
+    },
+    {
+      "id": 45,
+      "positionsId": 16,
+      "typesId": 17
+    },
+    {
+      "id": 46,
+      "positionsId": 16,
+      "typesId": 18
+    },
+    {
+      "id": 47,
+      "positionsId": 16,
+      "typesId": 24
+    },
+    {
+      "id": 48,
+      "positionsId": 16,
+      "typesId": 25
+    },
+    {
+      "id": 49,
+      "positionsId": 15,
+      "typesId": 2
+    },
+    {
+      "id": 50,
+      "positionsId": 15,
+      "typesId": 17
+    },
+    {
+      "id": 51,
+      "positionsId": 15,
+      "typesId": 18
+    },
+    {
+      "id": 52,
+      "positionsId": 17,
+      "typesId": 19
+    },
+    {
+      "id": 53,
+      "positionsId": 17,
+      "typesId": 20
+    },
+    {
+      "id": 54,
+      "positionsId": 17,
+      "typesId": 12
+    },
+    {
+      "id": 55,
+      "positionsId": 18,
+      "typesId": 22
+    },
+    {
+      "id": 56,
+      "positionsId": 18,
+      "typesId": 20
+    },
+    {
+      "id": 57,
+      "positionsId": 18,
+      "typesId": 21
+    },
+    {
+      "id": 58,
+      "positionsId": 19,
+      "typesId": 22
+    },
+    {
+      "id": 59,
+      "positionsId": 19,
+      "typesId": 20
+    },
+    {
+      "id": 60,
+      "positionsId": 19,
+      "typesId": 21
+    },
+    {
+      "id": 61,
+      "positionsId": 20,
+      "typesId": 16
+    },
+    {
+      "id": 62,
+      "positionsId": 20,
+      "typesId": 23
+    },
+    {
+      "id": 63,
+      "positionsId": 21,
+      "typesId": 16
+    },
+    {
+      "id": 64,
+      "positionsId": 21,
+      "typesId": 23
+    }
+  ]
 }

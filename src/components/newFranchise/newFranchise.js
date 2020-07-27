@@ -53,14 +53,23 @@ const NewFranchise = props => {
         private: privateLeague
     }
 
+    //this posts the new franchise to the DB and then takes that data and makes a post for years including the FranchiseId
     const postFranchise = (e) => {
         e.preventDefault();
         apiManager.post("franchises", newFranchise)
-        .then(() => {
-            setModal(!openModal)
-            props.history.push("/")
+        .then((franchise) => {
+            const yearInfo = {
+                name: parseInt(20 + '' + franchise.year),
+                franchiseId: franchise.id
+            }
+            apiManager.post("years", yearInfo)
+            .then((year) => {
+                setModal(!openModal)
+                props.history.push(`/${newFranchise.name}`, year.franchiseId)
+            })
         })
-        console.log('you clicked me', newFranchise)
+        
+ 
     }
 
     return (
