@@ -50,7 +50,7 @@ const NewFranchise = props => {
         name: name.current.value,
         year: maddenYear,
         online: onlineLeague,
-        private: privateLeague 
+        private: privateLeague
     }
 
     //this posts the new franchise to the DB and then takes that data and makes a post for years including the FranchiseId

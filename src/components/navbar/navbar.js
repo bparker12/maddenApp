@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { Menu, Dropdown } from 'semantic-ui-react'
 import Madden_Tracker_Logo from './Madden_Tracker_Logo.png'
 import './navbar.css'
@@ -15,7 +15,7 @@ const NavBar = props => {
         .then(setFranchises)
     }
 
-    useEffect(getFranchises, [])
+    useEffect(getFranchises, [franchises])
 
     const franchiseSelect = (e, data) => {
         props.history.push(`/${data.text}`, {franchiseId: data.value})

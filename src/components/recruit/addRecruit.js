@@ -12,11 +12,31 @@ const AddRecruit = props => {
 
     const name = useRef('')
     const age = useRef(20)
-    const position = useRef('')
-    const positionType = useRef('')
     const school = useRef('')
     const headline = useRef('')
     const news = useRef('')
+
+    //this fetches the join table between players and their types to bring for the dropdown menus from the DB
+    const getPositions = () => {
+        apiManager.getAll('positionTypes', '_expand=types&_expand=positions')
+        .then(setPositiontypes)
+    }
+
+    const [positionTypes, setPositiontypes] = useState([])
+
+        useEffect(() => {
+            getPositions()
+        }, [])
+    //this takes the join table from the db and breaks down the positions and returns only unique positions instead of repeating
+    const uniquePositions = (array) => {
+        const uniquePositionId = []
+        array.map(x => {
+            uniquePositionId.push(x.positions)
+        })
+        // used code from here to only use unique items from the array https://stackoverflow.com/questions/2218999/remove-duplicates-from-an-array-of-objects-in-javascript
+        return([...new Map(uniquePositionId.map(item => [item["id"], item])).values()])
+    }
+
 
     const [weekNum, setWeekNum] = useState(1)
     const [newsThisWeek, setNewsThisWeek] = useState(false)
@@ -24,6 +44,9 @@ const AddRecruit = props => {
     const [projDraftnum, setProjDraftNum] = useState(1)
     const [trueDraftRound, setTrueDraftRound] = useState(1)
     const [trueDraftpos, setTrueDraftPos] = useState('Early')
+    const [positionValue, setPosition] = useState(1)
+    const [positionTypeArr, setPositionTypeArr] = useState([])
+    const [positionTypeValue, setPositionTypeValue] = useState(1)
 
     const offseasonWeek = ['Superbowl', 'Offseason Stage 1', 'Offseason Stage 2', 'Offseason Stage 3']
     const week = range(1,17).concat(offseasonWeek)
@@ -35,6 +58,13 @@ const AddRecruit = props => {
         {label: 'Late', value: 3}
     ])
 
+    const positionTypeSelectionFilter = (position) => {
+        let positionFilter = positionTypes.filter(type => type.positionsId === parseInt(position))
+        const firstObject = positionFilter[0]
+        setPositionTypeValue(firstObject.id)
+        setPositionTypeArr(positionFilter)
+    }
+    //set a start number and an end number in which you want an array of numbers for
     function range(start, end) {
         return Array(end - start + 1).fill().map((_, idx) => start + idx)
       }
@@ -44,13 +74,14 @@ const AddRecruit = props => {
         {label: 'No', value: false}
     ])
 
+    //this function will capture changes in the in dropdown fields to set state based on input
     const changeValue = (e) => {
         if(e.target.id === 'newsThisWeek'){
             if(e.target.value === 'true'){
                 setNewsThisWeek(true)
+                positionTypeSelectionFilter(positionValue)
             } else {setNewsThisWeek(false)}
         } else if(e.target.id === 'weekNum'){
-            console.log(offseasonWeek.includes(e.target.value), [e.target.value])
             if(offseasonWeek.includes(e.target.value)){
                 setWeekNum(e.target.value)
             } else {
@@ -64,16 +95,21 @@ const AddRecruit = props => {
             setTrueDraftRound(parseInt(e.target.value))
         } else if(e.target.id === 'trueDraftPosition'){
             setTrueDraftPos(e.target.value)
+        } else if(e.target.id === 'position'){
+            setPosition(e.target.value)
+            positionTypeSelectionFilter(e.target.value)
+        } else if(e.target.id === 'type'){
+            setPositionTypeValue(parseInt(e.target.value))
         }
     }
-    
+
+    //takes the newRecruit Object and pushes to database
     const postRecruit = (e) => {
         const newRecruit = {
             userId: 1,
             name: name.current.value,
             age: parseInt(age.current.value),
-            position: position.current.value,
-            positionType: positionType.current.value,
+            positionType: positionTypeValue,
             school: school.current.value,
             headline: headline.current.value,
             news: news.current.value,
@@ -152,13 +188,39 @@ const AddRecruit = props => {
                 <Form.Field>
                     <input type='number' min="20" max='24' id='age' defaultValue={21} ref = {age}/>
                 </Form.Field>
-                    <Label size='big'>Position</Label>
                 <Form.Field>
-                    <input type='string' id='position' ref = {position}/>
+                     <Label size='big'>Position</Label>
+                     <select
+                    id="position"
+                    onChange={changeValue}
+                    value={positionValue}
+                    >
+                    {uniquePositions(positionTypes).map(opt => (
+                        <option
+                        key={opt.id}
+                        value={opt.id}
+                        >
+                        {opt.name}
+                        </option>
+                    ))}
+                    </select>
                 </Form.Field>
-                    <Label size='big'>Position Type</Label>
                 <Form.Field>
-                    <input type='string' id='positionType' ref = {positionType}/>
+                    <Label size='big'>Position Type</Label>
+                    <select
+                    id="type"
+                    onChange={changeValue}
+                    value={positionTypeValue}
+                    >
+                        {positionTypeArr.map(type => (
+                            <option
+                            key={type.id}
+                            value={type.id}
+                            >
+                            {type.types.name}
+                            </option>
+                        ))}
+                    </select>
                 </Form.Field>
                     <Label size='big'>School</Label>
                 <Form.Field>
@@ -269,6 +331,11 @@ const AddRecruit = props => {
                     ))}
                     </select>
                 </Form.Field>
+                        <Button
+                        onClick={() => props.history.push(`/${currentFranchise}`, {franchiseId: franchiseId})}
+                        >
+                        Return to Franchise
+                        </Button>
             </React.Fragment>
             }
             </Form>
