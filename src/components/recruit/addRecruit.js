@@ -9,6 +9,7 @@ const AddRecruit = props => {
     const location = useLocation()
     const currentFranchise = location.state.franchiseName
     const franchiseId = location.state.franchiseId
+    const yearId = location.state.yearId
 
     const name = useRef('')
     const age = useRef(20)
@@ -106,24 +107,30 @@ const AddRecruit = props => {
 
     //takes the newRecruit Object and pushes to database
     const postRecruit = (e) => {
+        e.preventDefault();
         const newRecruit = {
             userId: 1,
             name: name.current.value,
             age: parseInt(age.current.value),
             positionType: positionTypeValue,
             school: school.current.value,
-            headline: headline.current.value,
-            news: news.current.value,
-            week: weekNum,
             projected_draft_round: projDraftRound,
             projected_draft_number: projDraftnum,
             scouted_draft_round: trueDraftRound,
             scouted_draft_position: trueDraftpos,
         }
-        e.preventDefault();
         apiManager.post("recruits", newRecruit)
-        .then(() => {
-            props.history.push("/")
+        .then((recruit) => {
+            const newDraftNews = {
+                yearId: yearId, 
+                recruitId: recruit.id,
+                newsWeek: weekNum,
+                headline: headline.current.value,
+                news: news.current.value,
+            }
+            apiManager.post("draftnews", newDraftNews)
+            .then()
+            props.history.push(`/${currentFranchise}`, {franchiseId: franchiseId})
         })
     }
 

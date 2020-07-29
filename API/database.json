@@ -19,63 +19,45 @@
   ],
   "recruits": [
     {
-      "id": 1,
       "userId": 1,
-      "name": "Tom Brady",
-      "age": 20,
-      "position": "QB",
-      "poistionType": "strong arm",
-      "school": "michigan",
-      "headline": "do not draft",
-      "news": "dude is a bum, do not draft him",
-      "projected_draft_round": 7,
-      "projected_draft_number": 224,
-      "scouted_draft_round": 7,
-      "scouted_draft_position": "late"
+      "name": " John Doe",
+      "age": 21,
+      "positionType": 3,
+      "school": "Ohio",
+      "projected_draft_round": 1,
+      "projected_draft_number": 2,
+      "scouted_draft_round": 2,
+      "scouted_draft_position": "Mid",
+      "id": 4
     },
     {
       "userId": 1,
-      "name": "John Smith",
-      "age": 20,
-      "position": "ROLB",
-      "positionType": "Run Stopper",
-      "school": "Virginia",
-      "headline": "This is the headline",
-      "news": "this is the news",
-      "week": 11,
-      "projected_draft_round": 1,
-      "projected_draft_number": 12,
+      "name": " John Smith",
+      "age": 24,
+      "positionType": 59,
+      "school": "James Madison University",
+      "projected_draft_round": 4,
+      "projected_draft_number": 18,
       "scouted_draft_round": 1,
       "scouted_draft_position": "Early",
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "name": "John Smith II",
-      "age": 22,
-      "position": "QB",
-      "positionType": "Run Stopper",
-      "school": "Virginia",
-      "headline": "This is the headline",
-      "news": "this is the news",
-      "week": null,
-      "projected_draft_round": 3,
-      "projected_draft_number": 17,
-      "scouted_draft_round": 6,
-      "scouted_draft_position": "Mid",
-      "id": 3
+      "id": 5
     }
   ],
   "years": [
     {
       "name": 2019,
-      "franchiseId": 1,
+      "franchisesId": 1,
       "id": 1
     },
     {
       "name": 2020,
-      "franchiseId": 1,
+      "franchisesId": 1,
       "id": 2
+    },
+    {
+      "name": 2019,
+      "franchisesId": 2,
+      "id": 3
     }
   ],
   "draftNews": [
@@ -86,6 +68,22 @@
       "headline": "boring stuff here",
       "news": "blah blah blah",
       "id": 1
+    },
+    {
+      "yearId": 3,
+      "recruitId": 4,
+      "newsWeek": 15,
+      "headline": "Heisman Winner",
+      "news": "Congrats on the best season ever by a Quarterback in the college ranks.",
+      "id": 2
+    },
+    {
+      "yearId": 3,
+      "recruitId": 5,
+      "newsWeek": 1,
+      "headline": "The best....around",
+      "news": "The best DB in the game",
+      "id": 3
     }
   ],
   "projecteds": [

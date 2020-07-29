@@ -15,7 +15,7 @@ const NavBar = props => {
         .then(setFranchises)
     }
 
-    useEffect(getFranchises, [franchises])
+    useEffect(getFranchises, [])
 
     const franchiseSelect = (e, data) => {
         props.history.push(`/${data.text}`, {franchiseId: data.value})
