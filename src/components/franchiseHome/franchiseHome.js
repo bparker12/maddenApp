@@ -14,6 +14,7 @@ const FranchiseHome = (props) => {
     const [recruits, setRecruits] = useState([])
     const [positionTypes, setPositiontypes] = useState([])
     const [currentYear, setCurrentYear] = useState({})
+    const [lastWeekRecorded, setLastWeekRecorded] = useState({})
 
     
     const franchiseUrl = props.match.params.franchiseName
@@ -21,14 +22,19 @@ const FranchiseHome = (props) => {
     const getFranchise = () => {
         apiManager.getAll("franchises", `id=${franchiseId}`)
         .then(setCurrentFranchise)
-        apiManager.getAll("years", `franchisesId=${franchiseId}&_expand=franchises`)
+        apiManager.getAll("years", `franchisesId=${franchiseId}&_expand=franchises&_sort=name`)
         .then(years =>{
             const currentYear = years.slice(-1)
             const currentYearId = currentYear[0]
             setCurrentYear({name:currentYearId.name, id: currentYearId.id})
             setFranchiseYears(years)
-            apiManager.getAll("draftNews", `yearsId=${currentYearId.id}&_expand=years&_expand=recruits`)
-            .then(setRecruits)
+            apiManager.getAll("draftNews", `yearsId=${currentYearId.id}&_expand=years&_expand=recruits&_sort=newsWeek`)
+            .then(recruits => {
+                const currentWeek = recruits.slice(-1)
+                const currentWeekId = currentWeek[0]
+                setLastWeekRecorded({weekNum:currentWeekId.newsWeek})
+                setRecruits(recruits)
+            })
         })
         apiManager.getAll('positionTypes', '_expand=types&_expand=positions')
         .then(setPositiontypes)
@@ -52,7 +58,7 @@ const FranchiseHome = (props) => {
                 }
                 <h5>Current Year: {currentYear.name}</h5>
                 
-                <h5>Last week Recorded: </h5>
+                <h5>Last week Recorded: {lastWeekRecorded.weekNum}</h5>
                 <Button
                 //https://stackoverflow.com/questions/59464337/how-to-send-params-in-usehistory-of-react-router-dom - this shows you can pass in objects into a push
                 onClick={() => props.history.push(`/${franchiseUrl}/addrecruit`, {franchiseName: franchiseUrl, franchiseId: franchiseId, yearId: currentYear.id })}
@@ -78,10 +84,16 @@ const FranchiseHome = (props) => {
                     </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={1}>
+                {recruits.length < 1?
+                <Grid.Column  textAlign='center'>
+                <h2>News has not been recorded for this year yet</h2>
+                </Grid.Column>
+                :
                 <Grid.Column  textAlign='center'>
                     <h3>{franchiseUrl} {currentYear.name} News</h3>
                     <RecruitTable recruits={recruits} positionTypes={positionTypes}/>
                 </Grid.Column>
+                }
             </Grid.Row>
         </Grid>
         </React.Fragment>
