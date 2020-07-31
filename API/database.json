@@ -41,6 +41,18 @@
       "scouted_draft_round": 1,
       "scouted_draft_position": "Early",
       "id": 5
+    },
+    {
+      "userId": 1,
+      "name": " Chris Cornwell",
+      "age": 24,
+      "positionType": 34,
+      "school": "George Mason",
+      "projected_draft_round": 3,
+      "projected_draft_number": 17,
+      "scouted_draft_round": 1,
+      "scouted_draft_position": "Early",
+      "id": 6
     }
   ],
   "years": [
@@ -50,11 +62,6 @@
       "id": 1
     },
     {
-      "name": 2020,
-      "franchisesId": 1,
-      "id": 2
-    },
-    {
       "name": 2019,
       "franchisesId": 2,
       "id": 3
@@ -62,28 +69,28 @@
   ],
   "draftNews": [
     {
-      "yearId": 1,
-      "recruitId": 1,
-      "newsWeek": 1,
-      "headline": "boring stuff here",
-      "news": "blah blah blah",
-      "id": 1
-    },
-    {
-      "yearId": 3,
-      "recruitId": 4,
+      "yearsId": 3,
+      "recruitsId": 4,
       "newsWeek": 15,
       "headline": "Heisman Winner",
       "news": "Congrats on the best season ever by a Quarterback in the college ranks.",
       "id": 2
     },
     {
-      "yearId": 3,
-      "recruitId": 5,
+      "yearsId": 3,
+      "recruitsId": 5,
       "newsWeek": 1,
       "headline": "The best....around",
       "news": "The best DB in the game",
       "id": 3
+    },
+    {
+      "yearsId": 3,
+      "recruitsId": 6,
+      "newsWeek": 4,
+      "headline": "Todd McShay (ToddMcshay@EA)",
+      "news": "Chris Cornwell is showing a dominate performance at his LE position at George Mason University.  Many NFL teams are taking notice.",
+      "id": 4
     }
   ],
   "projecteds": [

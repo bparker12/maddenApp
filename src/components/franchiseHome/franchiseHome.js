@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Dropdown, Grid, Button } from "semantic-ui-react";
 import { useLocation } from "react-router-dom"
 import apiManager from "../../modules/apiManager";
+import RecruitTable from "../recruit/recruitTable"
 
 const FranchiseHome = (props) => {
 
@@ -10,6 +11,9 @@ const FranchiseHome = (props) => {
 
     const [currentFranchise, setCurrentFranchise] = useState([])
     const [franchiseYears, setFranchiseYears] = useState([])
+    const [recruits, setRecruits] = useState([])
+    const [positionTypes, setPositiontypes] = useState([])
+    const [currentYear, setCurrentYear] = useState({})
 
     
     const franchiseUrl = props.match.params.franchiseName
@@ -18,13 +22,19 @@ const FranchiseHome = (props) => {
         apiManager.getAll("franchises", `id=${franchiseId}`)
         .then(setCurrentFranchise)
         apiManager.getAll("years", `franchisesId=${franchiseId}&_expand=franchises`)
-        .then(setFranchiseYears)
+        .then(years =>{
+            const currentYear = years.slice(-1)
+            const currentYearId = currentYear[0]
+            setCurrentYear({name:currentYearId.name, id: currentYearId.id})
+            setFranchiseYears(years)
+            apiManager.getAll("draftNews", `yearsId=${currentYearId.id}&_expand=years&_expand=recruits`)
+            .then(setRecruits)
+        })
+        apiManager.getAll('positionTypes', '_expand=types&_expand=positions')
+        .then(setPositiontypes)
     }
     
     useEffect(getFranchise, [franchiseId])
-    
-    let currentYear = franchiseYears.slice(-1)
-    let currentYearId = currentYear[0]
 
     return (
         <React.Fragment>
@@ -40,25 +50,19 @@ const FranchiseHome = (props) => {
                     </React.Fragment>
                 ))
                 }
-                {currentYear.map(year => (
-                    <h5
-                    key={year.id}
-                    >Current Year: {year.name}</h5>
-                ))
-                }
+                <h5>Current Year: {currentYear.name}</h5>
                 
-                    <h5>Last week Recorded: </h5>
-                    
+                <h5>Last week Recorded: </h5>
                 <Button
                 //https://stackoverflow.com/questions/59464337/how-to-send-params-in-usehistory-of-react-router-dom - this shows you can pass in objects into a push
-                onClick={() => props.history.push(`/${franchiseUrl}/addrecruit`, {franchiseName: franchiseUrl, franchiseId: franchiseId, yearId: currentYearId.id })}
+                onClick={() => props.history.push(`/${franchiseUrl}/addrecruit`, {franchiseName: franchiseUrl, franchiseId: franchiseId, yearId: currentYear.id })}
                 >
                 Add Recruit
                 </Button>
                     </Grid.Column>
                     <Grid.Column>
                     <h2>Update Previous Years</h2>
-                        <Dropdown placeholder='Choose Year to Update'>
+                        <Dropdown defaultValue={currentYear.name} placeholder='Choose Year to Update'>
                             <Dropdown.Menu>
                             {franchiseYears.map(year => (
                                 <Dropdown.Item
@@ -75,7 +79,8 @@ const FranchiseHome = (props) => {
             </Grid.Row>
             <Grid.Row columns={1}>
                 <Grid.Column  textAlign='center'>
-                    <h3>Current Years stories here in table?</h3>
+                    <h3>{franchiseUrl} {currentYear.name} News</h3>
+                    <RecruitTable recruits={recruits} positionTypes={positionTypes}/>
                 </Grid.Column>
             </Grid.Row>
         </Grid>
