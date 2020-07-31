@@ -53,6 +53,18 @@
       "scouted_draft_round": 1,
       "scouted_draft_position": "Early",
       "id": 6
+    },
+    {
+      "userId": 1,
+      "name": "Andrew Grace",
+      "age": 21,
+      "positionType": 6,
+      "school": "James Madison University",
+      "projected_draft_round": 6,
+      "projected_draft_number": 17,
+      "scouted_draft_round": 4,
+      "scouted_draft_position": "Mid",
+      "id": 7
     }
   ],
   "years": [
@@ -91,6 +103,14 @@
       "headline": "Todd McShay (ToddMcshay@EA)",
       "news": "Chris Cornwell is showing a dominate performance at his LE position at George Mason University.  Many NFL teams are taking notice.",
       "id": 4
+    },
+    {
+      "yearsId": 1,
+      "recruitsId": 7,
+      "newsWeek": 1,
+      "headline": "Runs in the Family",
+      "news": "Grace may be the fastest HB the NFL has ever seen.",
+      "id": 5
     }
   ],
   "projecteds": [
