@@ -22,13 +22,13 @@ const FranchiseHome = (props) => {
     const getFranchise = () => {
         apiManager.getAll("franchises", `id=${franchiseId}`)
         .then(setCurrentFranchise)
-        apiManager.getAll("years", `franchisesId=${franchiseId}&_expand=franchises`)
+        apiManager.getAll("years", `franchisesId=${franchiseId}&_expand=franchises&_sort=name`)
         .then(years =>{
             const currentYear = years.slice(-1)
             const currentYearId = currentYear[0]
             setCurrentYear({name:currentYearId.name, id: currentYearId.id})
             setFranchiseYears(years)
-            apiManager.getAll("draftNews", `yearsId=${currentYearId.id}&_expand=years&_expand=recruits`)
+            apiManager.getAll("draftNews", `yearsId=${currentYearId.id}&_expand=years&_expand=recruits&_sort=newsWeek`)
             .then(recruits => {
                 const currentWeek = recruits.slice(-1)
                 const currentWeekId = currentWeek[0]
