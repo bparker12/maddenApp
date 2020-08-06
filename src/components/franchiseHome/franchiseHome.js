@@ -91,7 +91,7 @@ const FranchiseHome = (props) => {
                 :
                 <Grid.Column  textAlign='center'>
                     <h3>{franchiseUrl} {currentYear.name} News</h3>
-                    <RecruitTable recruits={recruits} positionTypes={positionTypes}/>
+                    <RecruitTable recruits={recruits} positionTypes={positionTypes} setRecruits={setRecruits} currentYear={currentYear.id}/>
                 </Grid.Column>
                 }
             </Grid.Row>

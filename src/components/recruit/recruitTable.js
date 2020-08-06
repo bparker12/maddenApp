@@ -1,10 +1,27 @@
-import React from "react"
-import{ Table } from 'semantic-ui-react'
+import React, { useState } from "react"
+import{ Table, Button, Modal, Confirm } from 'semantic-ui-react'
+import PlayerCard from "./playerCard"
+import apiManager from "../../modules/apiManager"
 
 const RecruitTable = props => {
 
+    const [open, setConfirm] = useState(false)
+    const [openModal, setModal] = useState(false)
+    const [modalPlayer, setModalPlayer] = useState()
+
+    const toggleModal = (object) => {
+            setModalPlayer(object)
+            setModal(!openModal)
+        }
+    
+    const toggleConfirm = (id) => {
+        console.log(id, "delete click")
+        setModalPlayer(id)
+        setConfirm(!open)
+    }
+
     return (
-        <Table celled padded textAlign='center'>
+        <Table celled padded selectable striped textAlign='center'>
         <Table.Header>
             <Table.Row>
                 <Table.HeaderCell>Name</Table.HeaderCell>
@@ -16,6 +33,7 @@ const RecruitTable = props => {
                 <Table.HeaderCell>Projected Draft Round</Table.HeaderCell>
                 <Table.HeaderCell>Projected Draft Position</Table.HeaderCell>
                 <Table.HeaderCell>True Talent Position</Table.HeaderCell>
+                <Table.HeaderCell>News</Table.HeaderCell>
             </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -39,24 +57,47 @@ const RecruitTable = props => {
                     return position.types.name
                     }
                 }
+
+                const deletePlayer = (id, id2) => {
+                    apiManager.deleteTwo("draftNews", id, "recruits", id2, `yearsId=${props.currentYear}&_expand=years&_expand=recruits&_sort=newsWeek`)
+                    .then(recruits =>
+                    props.setRecruits(recruits))
+                    toggleModal()
+                }
                 return (
-                <Table.Row key={recruit.id}>
-                    <Table.Cell selectable> {recruit.recruits.name} </Table.Cell>
-                    <Table.Cell> {positionFilter(recruit.recruits.positionType, "position")} </Table.Cell>
-                    <Table.Cell> {positionFilter(recruit.recruits.positionType, "type")} </Table.Cell>
-                    <Table.Cell> {recruit.recruits.school} </Table.Cell>
-                    <Table.Cell> {recruit.headline} </Table.Cell>
-                    <Table.Cell> {recruit.newsWeek} </Table.Cell>
-                    <Table.Cell> {recruit.recruits.projected_draft_round} </Table.Cell>
-                    <Table.Cell> {recruit.recruits.projected_draft_number} </Table.Cell>
-                    <Table.Cell> {recruit.recruits.scouted_draft_position} {roundEnd(recruit.recruits.scouted_draft_round)} </Table.Cell>
-                </Table.Row>
+                    <React.Fragment key={recruit.id}>
+                        <Table.Row id={recruit.id}  onClick={() => toggleModal(recruit)}>
+                            <Table.Cell > {recruit.recruits.name} </Table.Cell>
+                            <Table.Cell> {positionFilter(recruit.recruits.positionType, "position")} </Table.Cell>
+                            <Table.Cell> {positionFilter(recruit.recruits.positionType, "type")} </Table.Cell>
+                            <Table.Cell> {recruit.recruits.school} </Table.Cell>
+                            <Table.Cell> {recruit.headline} </Table.Cell>
+                            <Table.Cell> {recruit.newsWeek} </Table.Cell>
+                            <Table.Cell> {recruit.recruits.projected_draft_round} </Table.Cell>
+                            <Table.Cell> {recruit.recruits.projected_draft_number} </Table.Cell>
+                            <Table.Cell> {recruit.recruits.scouted_draft_position} {roundEnd(recruit.recruits.scouted_draft_round)} </Table.Cell>
+                            <Table.Cell> {recruit.news} </Table.Cell>
+                        </Table.Row>
+                            <Modal
+                            closeIcon
+                            open={openModal}
+                            onCancel={() => setModal(!openModal)}
+                            onClose={() => setModal(!openModal)}
+                            >
+                                <Modal.Content>
+                                        <PlayerCard recruit={modalPlayer} positionTypes={props.positionTypes} posFilter={positionFilter}
+                                        roundEnd={roundEnd}    
+                                        />
+                                    <Button fluid> Edit </Button>
+                                    <Button fluid onClick={() => deletePlayer(recruit.id, recruit.recruitsId)}> Delete </Button>
+                                </Modal.Content>
+                            </Modal>
+                        {/* <Confirm open={open} onCancel={() => setConfirm(!open)} onConfirm={() => deletePlayer(recruit.id)} /> */}
+                    </React.Fragment>
             )
             })
             }
         </Table.Body>
-
-
         </Table>
     )
 }

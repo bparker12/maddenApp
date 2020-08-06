@@ -11,15 +11,26 @@ export default {
       url += `?${queryParams}`
     }
     return fetch(url)
-    .then( data => data.json())
+    .then(data => data.json())
   },
   delete(database, id) {
+    
     return fetch(`${remoteURL}/${database}/${id}`, {
       method: "DELETE"
     })
       .then(data => data.json())
       .then(() => fetch(`${remoteURL}/${database}`))
       .then(data => data.json())
+    },
+  deleteTwo(database, id, DB2, id2, queryParams) {
+      return fetch(`${remoteURL}/${database}/${id}`, {
+          method: "DELETE"
+        })
+        .then(fetch(`${remoteURL}/${DB2}/${id2}`, {
+            method: "DELETE"
+          })
+          )
+        .then(() => this.getAll(database, queryParams))
   },
   post(database, newData) {
     return fetch(`${remoteURL}/${database}`, {
