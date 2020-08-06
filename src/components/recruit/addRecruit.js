@@ -190,7 +190,7 @@ const AddRecruit = props => {
                 </Form.Field>
                     <Label size='big'>News</Label>
                 <Form.Field>
-                    <input required type='string' id='news' ref = {news}/>
+                    <textarea required type='string' id='news' ref = {news}/>
                 </Form.Field>
                     <Label size='big'>Age</Label>
                 <Form.Field>
