@@ -55,6 +55,7 @@ const FranchiseHome = (props) => {
         .then(years =>{
             setCurrentYear({name:years.name, id: years.id})
             setRecruits([])
+            setLastWeekRecorded({})
 
     })
     }
