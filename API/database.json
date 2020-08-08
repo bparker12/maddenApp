@@ -65,6 +65,18 @@
       "scouted_draft_round": 4,
       "scouted_draft_position": "Mid",
       "id": 7
+    },
+    {
+      "userId": 1,
+      "name": "Charles Barkley",
+      "age": 22,
+      "positionType": 43,
+      "school": "Syracuse",
+      "projected_draft_round": 1,
+      "projected_draft_number": 1,
+      "scouted_draft_round": 1,
+      "scouted_draft_position": "Early",
+      "id": 8
     }
   ],
   "years": [
@@ -77,6 +89,11 @@
       "name": 2019,
       "franchisesId": 2,
       "id": 3
+    },
+    {
+      "name": 2020,
+      "franchisesId": 2,
+      "id": 4
     }
   ],
   "draftNews": [
@@ -111,6 +128,14 @@
       "headline": "Runs in the Family",
       "news": "Grace may be the fastest HB the NFL has ever seen.",
       "id": 5
+    },
+    {
+      "yearsId": 3,
+      "recruitsId": 8,
+      "newsWeek": "Offseason Stage 3",
+      "headline": "Matt Miller (@MattMillerEA)",
+      "news": "Barkley may be the best recruit in this years draft, but had a poor showing at the combine",
+      "id": 6
     }
   ],
   "projecteds": [
