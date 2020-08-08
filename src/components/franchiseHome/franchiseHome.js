@@ -16,9 +16,10 @@ const FranchiseHome = (props) => {
     const [currentYear, setCurrentYear] = useState({})
     const [lastWeekRecorded, setLastWeekRecorded] = useState({})
 
-    
+
     const franchiseUrl = props.match.params.franchiseName
-    
+
+
     const getFranchise = () => {
         apiManager.getAll("franchises", `id=${franchiseId}`)
         .then(setCurrentFranchise)
@@ -30,18 +31,42 @@ const FranchiseHome = (props) => {
             setFranchiseYears(years)
             apiManager.getAll("draftNews", `yearsId=${currentYearId.id}&_expand=years&_expand=recruits&_sort=newsWeek`)
             .then(recruits => {
+                if(recruits.length > 0){
                 const currentWeek = recruits.slice(-1)
                 const currentWeekId = currentWeek[0]
                 setLastWeekRecorded({weekNum:currentWeekId.newsWeek})
                 setRecruits(recruits)
+                }
             })
         })
         apiManager.getAll('positionTypes', '_expand=types&_expand=positions')
         .then(setPositiontypes)
     }
-    
-    useEffect(getFranchise, [franchiseId])
 
+    useEffect(getFranchise, [franchiseId, currentYear.id])
+
+    const addYear = () => {
+        const franchise = currentFranchise[0]
+        const newYear ={
+            name: currentYear.name +1,
+            franchisesId: franchise.id
+        }
+        apiManager.post("years", newYear)
+        .then(years =>{
+            setCurrentYear({name:years.name, id: years.id})
+            setRecruits([])
+
+    })
+    }
+
+    const newYearButton = () => {
+        const isLastWeek = Object.values(lastWeekRecorded).includes("Offseason Stage 3")
+        if(isLastWeek === true){
+            return (
+                <Button onClick={() => addYear()}> AddNewYear </Button>
+            )
+        }
+    }
     return (
         <React.Fragment>
         <Grid divided style={{ padding: '30px'}}>
@@ -57,7 +82,7 @@ const FranchiseHome = (props) => {
                 ))
                 }
                 <h5>Current Year: {currentYear.name}</h5>
-                
+
                 <h5>Last week Recorded: {lastWeekRecorded.weekNum}</h5>
                 <Button
                 //https://stackoverflow.com/questions/59464337/how-to-send-params-in-usehistory-of-react-router-dom - this shows you can pass in objects into a push
@@ -65,6 +90,7 @@ const FranchiseHome = (props) => {
                 >
                 Add Recruit
                 </Button>
+                {newYearButton()}
                     </Grid.Column>
                     <Grid.Column>
                     <h2>Update Previous Years</h2>
