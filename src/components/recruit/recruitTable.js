@@ -13,7 +13,7 @@ const RecruitTable = props => {
             setModalPlayer(object)
             setModal(!openModal)
         }
-    
+
     const toggleConfirm = (id) => {
         console.log(id, "delete click")
         setModalPlayer(id)
@@ -59,7 +59,7 @@ const RecruitTable = props => {
                 }
 
                 const deletePlayer = (id, id2) => {
-                    apiManager.deleteTwo("draftNews", id, "recruits", id2, `yearsId=${props.currentYear}&_expand=years&_expand=recruits&_sort=newsWeek`)
+                    apiManager.delete("recruits", id2, `yearsId=${props.currentYear}&_expand=years&_expand=recruits&_sort=newsWeek`, "draftNews")
                     .then(recruits =>
                     props.setRecruits(recruits))
                     toggleModal()
@@ -86,10 +86,11 @@ const RecruitTable = props => {
                             >
                                 <Modal.Content>
                                         <PlayerCard recruit={modalPlayer} positionTypes={props.positionTypes} posFilter={positionFilter}
-                                        roundEnd={roundEnd}    
+                                        roundEnd={roundEnd}
                                         />
                                     <Button fluid> Edit </Button>
-                                    <Button fluid onClick={() => deletePlayer(recruit.id, recruit.recruitsId)}> Delete </Button>
+                                    <Button fluid onClick={() => deletePlayer(modalPlayer.id, modalPlayer.recruitsId)}> Delete </Button>
+                                    {/* <Button fluid onClick={() => console.log(modalPlayer.id, modalPlayer.recruitsId)}> Delete </Button> */}
                                 </Modal.Content>
                             </Modal>
                         {/* <Confirm open={open} onCancel={() => setConfirm(!open)} onConfirm={() => deletePlayer(recruit.id)} /> */}

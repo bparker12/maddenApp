@@ -43,7 +43,7 @@ const FranchiseHome = (props) => {
         .then(setPositiontypes)
     }
 
-    useEffect(getFranchise, [franchiseId, currentYear.id])
+    useEffect(getFranchise, [franchiseId, currentYear.id, recruits.length])
 
     const addYear = () => {
         const franchise = currentFranchise[0]

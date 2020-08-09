@@ -13,25 +13,24 @@ export default {
     return fetch(url)
     .then(data => data.json())
   },
-  delete(database, id) {
-    
+  delete(database, id, queryParams, DB2) {
+
     return fetch(`${remoteURL}/${database}/${id}`, {
       method: "DELETE"
     })
-      .then(data => data.json())
-      .then(() => fetch(`${remoteURL}/${database}`))
-      .then(data => data.json())
+      .then(() => this.getAll(DB2, queryParams))
     },
-  deleteTwo(database, id, DB2, id2, queryParams) {
-      return fetch(`${remoteURL}/${database}/${id}`, {
-          method: "DELETE"
-        })
-        .then(fetch(`${remoteURL}/${DB2}/${id2}`, {
-            method: "DELETE"
-          })
-          )
-        .then(() => this.getAll(database, queryParams))
-  },
+  // deleteTwo(database, id, DB2, id2, queryParams) {
+  //   debugger
+  //     return fetch(`${remoteURL}/${database}/${id}`, {
+  //         method: "DELETE"
+  //       })
+  //       .then(fetch(`${remoteURL}/${DB2}/${id2}`, {
+  //           method: "DELETE"
+  //         })
+  //         )
+  //       .then(() => this.getAll(DB2, queryParams))
+  // },
   post(database, newData) {
     return fetch(`${remoteURL}/${database}`, {
       method: "POST",
