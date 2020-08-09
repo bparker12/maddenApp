@@ -36,6 +36,9 @@ const FranchiseHome = (props) => {
                 const currentWeekId = currentWeek[0]
                 setLastWeekRecorded({weekNum:currentWeekId.newsWeek})
                 setRecruits(recruits)
+                } else {
+                    setRecruits([])
+                    setLastWeekRecorded({})
                 }
             })
         })
@@ -43,7 +46,7 @@ const FranchiseHome = (props) => {
         .then(setPositiontypes)
     }
 
-    useEffect(getFranchise, [franchiseId, currentYear.id, recruits.length])
+    useEffect(getFranchise, [franchiseId])
 
     const addYear = () => {
         const franchise = currentFranchise[0]
@@ -51,12 +54,15 @@ const FranchiseHome = (props) => {
             name: currentYear.name +1,
             franchisesId: franchise.id
         }
-        apiManager.post("years", newYear)
-        .then(years =>{
-            setCurrentYear({name:years.name, id: years.id})
-            setRecruits([])
-
-    })
+        if(franchiseYears.filter(year => year.name === newYear.name).length > 0){
+            alert("This year already exists")
+        } else{
+            apiManager.post("years", newYear)
+            .then(years =>{
+                setCurrentYear({name:years.name, id: years.id})
+                setRecruits([])
+            })
+        }
     }
 
     const newYearButton = () => {
@@ -66,6 +72,23 @@ const FranchiseHome = (props) => {
                 <Button onClick={() => addYear()}> AddNewYear </Button>
             )
         }
+    }
+
+    const toggleYear = (year) => {
+        setCurrentYear({id: year.id, name: year.name})
+        apiManager.getAll("draftNews", `yearsId=${year.id}&_expand=years&_expand=recruits&_sort=newsWeek`)
+        .then(recruits => {
+            if(recruits.length > 0){
+            const currentWeek = recruits.slice(-1)
+            const currentWeekId = currentWeek[0]
+            setLastWeekRecorded({weekNum:currentWeekId.newsWeek})
+            setRecruits(recruits)
+            } else {
+                setRecruits([])
+                setLastWeekRecorded({})
+            }
+        })
+
     }
     return (
         <React.Fragment>
@@ -94,19 +117,16 @@ const FranchiseHome = (props) => {
                     </Grid.Column>
                     <Grid.Column>
                     <h2>Update Previous Years</h2>
-                        <Dropdown defaultValue={currentYear.name} placeholder='Choose Year to Update'>
-                            <Dropdown.Menu>
                             {franchiseYears.map(year => (
-                                <Dropdown.Item
-                                    active
+                                <Button
                                     key={year.id}
                                     value={year.id}
-                                    text={year.name}
-                                />
+                                    onClick={() => {toggleYear(year)}}
+                                >
+                                    {year.name}
+                                    </Button>
                                 ))
                             }
-                            </Dropdown.Menu>
-                        </Dropdown>
                     </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={1}>
