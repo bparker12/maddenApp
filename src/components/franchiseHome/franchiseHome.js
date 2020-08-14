@@ -67,7 +67,8 @@ const FranchiseHome = (props) => {
 
     const newYearButton = () => {
         const isLastWeek = Object.values(lastWeekRecorded).includes("Offseason Stage 3")
-        if(isLastWeek === true){
+        const dupYear = franchiseYears.some(years => years['name'] === currentYear.name+1)
+        if(isLastWeek === true && dupYear === false){
             return (
                 <Button onClick={() => addYear()}> AddNewYear </Button>
             )

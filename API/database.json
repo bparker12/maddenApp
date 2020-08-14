@@ -94,6 +94,18 @@
       "scouted_draft_round": 1,
       "scouted_draft_position": "Early",
       "id": 8
+    },
+    {
+      "userId": 1,
+      "name": " Kyle Zimmerman",
+      "age": 22,
+      "positionType": 3,
+      "school": "UCLA",
+      "projected_draft_round": 2,
+      "projected_draft_number": 11,
+      "scouted_draft_round": 1,
+      "scouted_draft_position": "Mid",
+      "id": 9
     }
   ],
   "draftNews": [
@@ -136,6 +148,14 @@
       "headline": "Matt Miller (@MattMillerEA)",
       "news": "Barkley may be the best recruit in this years draft, but had a poor showing at the combine",
       "id": 6
+    },
+    {
+      "yearsId": 4,
+      "recruitsId": 9,
+      "newsWeek": "Offseason Stage 3",
+      "headline": "Matt Miller (@MattMillerEA)",
+      "news": "Zimmerman showed his true talent during the All-Star Game. Moving up on the draft board",
+      "id": 7
     }
   ],
   "projecteds": [
