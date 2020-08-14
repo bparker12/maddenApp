@@ -122,7 +122,7 @@ const AddRecruit = props => {
         apiManager.post("recruits", newRecruit)
         .then((recruit) => {
             const newDraftNews = {
-                yearsId: yearId, 
+                yearsId: yearId,
                 recruitsId: recruit.id,
                 newsWeek: weekNum,
                 headline: headline.current.value,

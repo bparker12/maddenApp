@@ -60,16 +60,17 @@ const NewFranchise = props => {
         .then((franchise) => {
             const yearInfo = {
                 name: parseInt(20 + '' + franchise.year),
-                franchiseId: franchise.id
+                franchisesId: franchise.id
             }
             apiManager.post("years", yearInfo)
             .then((year) => {
                 setModal(!openModal)
-                props.history.push(`/${newFranchise.name}`, year.franchiseId)
+                debugger
+                props.history.push(`/${newFranchise.name}`, {franchiseId: year.franchisesId})
             })
         })
-        
- 
+
+
     }
 
     return (

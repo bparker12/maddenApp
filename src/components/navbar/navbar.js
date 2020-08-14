@@ -15,7 +15,10 @@ const NavBar = props => {
         .then(setFranchises)
     }
 
-    useEffect(getFranchises, [])
+    const location = useLocation()
+    const currentPath = location.pathname
+
+    useEffect(getFranchises, [currentPath])
 
     const franchiseSelect = (e, data) => {
         props.history.push(`/${data.text}`, {franchiseId: data.value})
